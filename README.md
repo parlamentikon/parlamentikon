@@ -18,21 +18,28 @@ Kde si lze prohlédnout ukázkové notebooky?
 Jaké jsou prerekvizity pro lokální běh?
 -----------------------
 Nutné:
-- python3
+- python3.7
 
 Doporučené:
-- virtualizace postředí (virtualenv, conda, ...)
+- virtualizace postředí python (virtualenv, conda, ...)
 
 
 Jak lze Parlamentikon použít?
 -----------------------------
 
 1. `git clone https://github.com/parlamentikon/parlamentikon.git`
+3. `python3 -m venv my-custom-venv && source my-custom-venv/bin/activate`
+ - Použijte vhodnou verzi pythonu (>=3.7)
+ - Prostředí <i>my-custom-venv</i> pojmenujte dle svého uvážení.
 2. `cd parlamentikon`
-3. `python3 -m venv my-custom-venv && source my-custom-venv/bin/activate && pip install wheel && pip install jupyter &&  pip install -r requirements.txt`
-4. `python setup .`
-5. import v kódu (python): `from parlamentikon.PoslanciOsoby import Poslanci`, etc.
-
+4. `pip install -r requirements.txt` - Nainstaluje potřebné závislosti knihovny.
+4. `pip install .` - Nainstaluje lokálně knihovnu Parlamentikon.
+5. import v kódu (python): 
+```
+from parlamentikon.PoslanciOsoby import Poslanci
+p = Poslanci()
+p.head()
+```
 
 Která data Parlamentikon zpřístupňuje?
 --------------------------------------
