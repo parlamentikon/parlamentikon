@@ -43,11 +43,11 @@ p.head()
 
 Která data Parlamentikon zpřístupňuje?
 --------------------------------------
-* Poslanci a Osoby
-* Hlasování
-* Schůze
-* Stenozáznamy
-* Stenotexty (ve velmi nedokonalém tvaru)
+* [Poslanci a Osoby](https://www.psp.cz/sqw/hp.sqw?k=1301)
+* [Hlasování](https://www.psp.cz/sqw/hp.sqw?k=1302)
+* [Schůze](https://www.psp.cz/sqw/hp.sqw?k=1308)
+* [Stenozáznamy](https://www.psp.cz/sqw/hp.sqw?k=1310)
+* Stenotexty (pomocí scrapingu, zatím ve velmi nedokonalém tvaru)
 
 
 Testování knihovny
