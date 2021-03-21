@@ -1,0 +1,14 @@
+bs4
+dash
+html2text
+html5lib
+matplotlib
+numpy>=1.18.4
+pandas==1.1.5 # there is some strange problem with round for newer versions of pandas
+plotly>=4.8.1
+requests
+joblib
+#scikit-learn==0.23.1
+#scipy==1.4.1
+#sklearn==0.0
+#ufal.morphodita==1.10.1.1
