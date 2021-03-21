@@ -12,7 +12,7 @@ Kde si lze prohlédnout ukázkové notebooky?
 -------------------------------------------
 * Analýza hlasování v Poslanecké sněmovně (poslední volební období):
   - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Hlasovani.html)
-  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Hlasovani.ipynb)
+  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Hlasovani.ipynb) (Vyžaduje přihlášení do účtu Google.)
 
 
 Jaké jsou prerekvizity pro lokální běh?
