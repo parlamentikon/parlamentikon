@@ -7,7 +7,7 @@ on:
     paths:
       - 'notebooks/Podobnost_hlasovani.src.ipynb'
       - 'parlamentikon/**.py'
-      #- '.github/workflows/**.yml'
+      - '.github/workflows/update-podobnost-hlasovani-nb.yml'
   schedule:
     - cron: 0 3 * * *
 
@@ -33,6 +33,7 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          git pull --no-ff
           git add notebooks/Podobnost_hlasovani.ipynb docs/Podobnost_hlasovani.html
           git commit -m "Automated run of analytic notebooks [github-actions, bot]"
 
