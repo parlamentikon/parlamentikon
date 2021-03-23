@@ -111,7 +111,8 @@ class TabulkaZpochybneniHlasovaniMixin(object):
 
         # V tabulce ZpochybneniHlasovani mohou být nekonzistence a duplicity.
         # Pomocí indikátoru 'je_platne' se je pokusíme označit.
-        # Jedná se o naši interpretaci dat, která může být mylná.
+        # Jedná se o naši interpretaci dat, ve které se můžeme mýlit.
+        # Algoritmus: Pomocí seřazeného pole upřednostníme v duplicitách zpochybnění s žádostí o opakování před zpochybněním jen pro stenozáznam (sort_values). Z takto seřazených duplicit pak vybíráme záznam s nejnovějším datem (tail).
         platne_zh = df[
             (df.mode__KAT == 'pouze pro stenozáznam') |
             ((df.mode__KAT == 'žádost o opakování') & ~df.id_h2.isna())
