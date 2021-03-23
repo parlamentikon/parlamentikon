@@ -10,9 +10,12 @@ Výstupy z ukázkových notebooků jsou každodenně aktualizované pomocí Gith
 
 Kde si lze prohlédnout ukázkové notebooky?
 -------------------------------------------
-* Analýza hlasování v Poslanecké sněmovně (poslední volební období):
+* [Podobnost_hlasovani.ipynb](notebooks/Podobnost_hlasovani.ipynb): Analýza podobnosti hlasování v Poslanecké sněmovně (pro poslance i strany):
+  - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Podobnost_hlasovani.html)
+  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Podobnost_hlasovani.ipynb)
+* [Hlasovani.ipynb](notebooks/Hlasovani.ipynb): Analýza hlasování v Poslanecké sněmovně (poslední volební období):
   - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Hlasovani.html)
-  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Hlasovani.ipynb) (Vyžaduje přihlášení do účtu Google.)
+  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Hlasovani.ipynb)
 
 
 Jaké jsou prerekvizity pro lokální běh?
