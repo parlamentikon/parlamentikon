@@ -15,7 +15,10 @@ Kde si lze prohlédnout ukázkové notebooky?
   - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Podobnost_hlasovani.ipynb)
 * [Jednomyslnost_hlasovani.ipynb](notebooks/Jednomyslnost_hlasovani.ipynb):
   - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Jednomyslnost_hlasovani.html)
-  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Jednomyslnost_hlasovani)
+  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Jednomyslnost_hlasovani.ipynb)
+* [Omluvy.ipynb](notebooks/Omluvy.ipynb):
+  - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Omluvy.html)
+  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Omluvy.ipynb)
 * [Hlasovani.ipynb](notebooks/Hlasovani.ipynb): Analýza hlasování v Poslanecké sněmovně (poslední volební období):
   - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Hlasovani.html)
   - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Hlasovani.ipynb)

@@ -7,7 +7,7 @@ on:
     paths:
       - 'notebooks/Podobnost_hlasovani.src.ipynb'
       - 'parlamentikon/**.py'
-      - '.github/workflows/**.yml'
+      #- '.github/workflows/**.yml'
   schedule:
     - cron: 0 3 * * *
 
