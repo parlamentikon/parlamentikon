@@ -5,7 +5,7 @@ from os import listdir #, path # TODO: asi stačí buď jen Path, nebo path
 import zipfile
 
 import pandas as pd
-from IPython.display import display
+#from IPython.display import display
 #import numpy as np
 
 import plotly.graph_objects as go
@@ -80,7 +80,7 @@ def popis_tabulku(frame, meta=None, schovej=[]):
         out.drop(columns=schovej, inplace=True)
 
     print()
-    display(out)
+    return out
 
 def popis_nulove_hodnoty(df):
     """

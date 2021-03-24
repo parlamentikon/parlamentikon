@@ -74,16 +74,6 @@ class Hlasovani(TabulkaHlasovaniMixin, TabulkaZmatecneHlasovaniMixin, TabulkaZpo
         self.tbl['hlasovani']['ma_stenozaznam'] = self.tbl['hlasovani'].id_hlasovani.isin(self.tbl['hlasovani_vazba_stenozaznam'].id_hlasovani.unique())
         self.meta.nastav_hodnotu('ma_stenozaznam', dict(popis='Indikátor existence stenozáznamu', tabulka='df', vlastni=True))
 
-        suffix = '__hlasovani_vazba_stenozaznam'
-        self.tbl['hlasovani'] = pd.merge(
-            left=self.tbl['hlasovani'],
-            right=self.tbl['hlasovani_vazba_stenozaznam'],
-            on="id_hlasovani",
-            how="left",
-            suffixes=('', suffix)
-        )
-        self.drop_by_inconsistency(self.tbl['hlasovani'], suffix, 0.1, 'hlasovani', 'hlasovani_vazba_stenozaznam', inplace=True)
-
         self.nastav_dataframe(
             self.tbl['hlasovani'],
             odstran=['datum__ORIG', 'druh_hlasovani__ORIG', 'vysledek__ORIG', 'typ__ORIG']
@@ -203,16 +193,16 @@ class HlasovaniPoslanci(TabulkaHlasovaniPoslanciMixin, Hlasovani, Poslanci, Zara
         self.nacti_hlasovani_poslanci()
 
         # Připoj Poslance. Získáme mimo jiné také 'id_osoba'.
-        self.tbl['hlasovani_poslance'] = pd.merge(left=self.tbl['hlasovani_poslance'], right=self.tbl['poslanci'], on="id_poslanec", suffixes=("", "__poslanci"), how='left')
-        self.drop_by_inconsistency(self.tbl['hlasovani_poslance'], "__poslanci", 0.1, 'hlasovani_poslance', 'poslanci', inplace=True)
-        self.tbl['hlasovani_poslance'] = self.tbl['hlasovani_poslance'][self.tbl['hlasovani_poslance'].id_parlament == self.snemovna.id_organ]
+        self.tbl['hlasovani_poslanci'] = pd.merge(left=self.tbl['hlasovani_poslanci'], right=self.tbl['poslanci'], on="id_poslanec", suffixes=("", "__poslanci"), how='left')
+        self.drop_by_inconsistency(self.tbl['hlasovani_poslanci'], "__poslanci", 0.1, 'hlasovani_poslanci', 'poslanci', inplace=True)
+        self.tbl['hlasovani_poslanci'] = self.tbl['hlasovani_poslanci'][self.tbl['hlasovani_poslanci'].id_parlament == self.snemovna.id_organ]
 
         # Připoj Hlasovani
         hlasovani_columns = ['id_hlasovani', 'schuze', 'cislo', 'bod', 'cas',
             'nazev_dlouhy', 'datum', 'bod__KAT',
             'druh_hlasovani', 'ma_zpochybneni', 'je_zmatecne']
-        self.tbl['hlasovani_poslance'] = pd.merge(left=self.tbl['hlasovani_poslance'], right=self.tbl['hlasovani'][hlasovani_columns], on="id_hlasovani", suffixes=("", "__hlasovani"), how='left')
-        self.drop_by_inconsistency(self.tbl['hlasovani_poslance'], "__hlasovani", 0.1, 'hlasovani_poslance', 'hlasovani', inplace=True)
+        self.tbl['hlasovani_poslanci'] = pd.merge(left=self.tbl['hlasovani_poslanci'], right=self.tbl['hlasovani'][hlasovani_columns], on="id_hlasovani", suffixes=("", "__hlasovani"), how='left')
+        self.drop_by_inconsistency(self.tbl['hlasovani_poslanci'], "__hlasovani", 0.1, 'hlasovani_poslanci', 'hlasovani', inplace=True)
 
         # Ze zarazeni_osoby získáme informace o tom, v jakém poslaneckém klubu byl daný poslanec v den hlasování
         zarazeni_osoby = self.tbl['zarazeni_osoby']
@@ -234,14 +224,14 @@ class HlasovaniPoslanci(TabulkaHlasovaniPoslanciMixin, Hlasovani, Poslanci, Zara
         # Nastav poslanecký klub pro všechny poslance.
         # Hodnota je správně jen pro poslance, kteří byli celou dobu v jediném klubu.
         # Přeběhlíky (poslance ve více klubech) nebo vystoupivší z klubů (nezařazené) budeme muset řešit zvlášť.
-        self.tbl['hlasovani_poslance'] = pd.merge(
-            self.tbl['hlasovani_poslance'],
+        self.tbl['hlasovani_poslanci'] = pd.merge(
+            self.tbl['hlasovani_poslanci'],
             zarazeni_do_klubu[['id_osoba', 'id_klub', 'nazev_klub_cz', 'zkratka_klub']],
             on='id_osoba', how="left", suffixes=('', '__zarazeni_do_klubu')
         )
-        self.drop_by_inconsistency(self.tbl['hlasovani_poslance'], "__zarazeni_do_klubu", 0.1, 'hlasovani_poslance', 'zarazeni_do_klubu', inplace=True, silent=True)
+        self.drop_by_inconsistency(self.tbl['hlasovani_poslanci'], "__zarazeni_do_klubu", 0.1, 'hlasovani_poslanci', 'zarazeni_do_klubu', inplace=True, silent=True)
         #print(zarazeni_do_klubu.columns)
-        #print(self.tbl['hlasovani_poslance'].columns)
+        #print(self.tbl['hlasovani_poslanci'].columns)
 
         # Pro přeběhlíky a vystoupivší je nutné vybrat řádky se správným údajem o zařazení do klubu.
         s = zarazeni_osoby_kluby.groupby('id_osoba').size().sort_values()
@@ -253,28 +243,28 @@ class HlasovaniPoslanci(TabulkaHlasovaniPoslanciMixin, Hlasovani, Poslanci, Zara
                 id_klub, nazev_klub_cz, zkratka_klub =  row['id_klub'], row['nazev_klub_cz'], row['zkratka_klub']
 
                 # nastav id_klub dle data hlasování (pro prebehliky a vystoupivší)
-                self.tbl['hlasovani_poslance'].id_klub.mask(
-                    (self.tbl['hlasovani_poslance'].id_osoba == id_osoba)
-                      & (self.tbl['hlasovani_poslance'].datum >= od_klub)
-                      & ((self.tbl['hlasovani_poslance'].datum <= do_klub) | (pd.isna(do_klub))),
+                self.tbl['hlasovani_poslanci'].id_klub.mask(
+                    (self.tbl['hlasovani_poslanci'].id_osoba == id_osoba)
+                      & (self.tbl['hlasovani_poslanci'].datum >= od_klub)
+                      & ((self.tbl['hlasovani_poslanci'].datum <= do_klub) | (pd.isna(do_klub))),
                     id_klub, inplace=True)
 
                 # nastav nazev_klub_cz dle data hlasování (pro prebehliky a vystoupivší)
-                self.tbl['hlasovani_poslance'].nazev_klub_cz.mask(
-                    (self.tbl['hlasovani_poslance'].id_osoba == id_osoba)
-                      & (self.tbl['hlasovani_poslance'].datum >= od_klub)
-                      & ((self.tbl['hlasovani_poslance'].datum <= do_klub) | (pd.isna(do_klub))),
+                self.tbl['hlasovani_poslanci'].nazev_klub_cz.mask(
+                    (self.tbl['hlasovani_poslanci'].id_osoba == id_osoba)
+                      & (self.tbl['hlasovani_poslanci'].datum >= od_klub)
+                      & ((self.tbl['hlasovani_poslanci'].datum <= do_klub) | (pd.isna(do_klub))),
                     nazev_klub_cz, inplace=True)
 
                 # nastav zkratka_klub dle data hlasování (pro prebehliky a vystoupivší)
-                self.tbl['hlasovani_poslance'].zkratka_klub.mask(
-                    (self.tbl['hlasovani_poslance'].id_osoba == id_osoba)
-                      & (self.tbl['hlasovani_poslance'].datum >= od_klub)
-                      & ((self.tbl['hlasovani_poslance'].datum <= do_klub) | (pd.isna(do_klub))),
+                self.tbl['hlasovani_poslanci'].zkratka_klub.mask(
+                    (self.tbl['hlasovani_poslanci'].id_osoba == id_osoba)
+                      & (self.tbl['hlasovani_poslanci'].datum >= od_klub)
+                      & ((self.tbl['hlasovani_poslanci'].datum <= do_klub) | (pd.isna(do_klub))),
                     zkratka_klub, inplace=True)
 
         self.nastav_dataframe(
-            self.tbl['hlasovani_poslance'],
+            self.tbl['hlasovani_poslanci'],
             vyber = [
                 'id_hlasovani', 'nazev_dlouhy', 'vysledek', # základní informace o hlasování poslance 
                 'id_poslanec', 'id_osoba', 'pred', 'jmeno', 'prijmeni', # základní informace o poslanci

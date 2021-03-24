@@ -3,7 +3,7 @@ import pandas as pd
 from parlamentikon.Snemovna import SnemovnaZipDataMixin, SnemovnaDataFrame
 from parlamentikon.PoslanciOsoby import Osoby, Organy
 #from parlamentikon.Schuze import *
-from parlamentikon.TabulkyStenozaznamy import TabulkaStenoMixin, TabulkaStenoBodMixin, TabulkaStenoRecniciMixin
+from parlamentikon.TabulkyStenozaznamy import TabulkaStenoMixin, TabulkaStenoBodMixin, TabulkaStenoRecMixin
 from parlamentikon.setup_logger import log
 
 # Stenozáznamy jsou těsnopisecké záznamy jednání Poslanecké sněmovny a jejích orgánů. V novějších volebních období obsahují časový úsek řádově 10 minut (případně mimo doby přerušení a podobně). Jsou číslovány v číselné řadě od začátku schůze.
@@ -65,34 +65,34 @@ class StenoBod(TabulkaStenoBodMixin, Steno):
 # Záznamy v druh typu ověřeno jsou zkontrolovány na základě automatického vyhledání záznamů o vystoupení, které neodpovídají jejich obvyklému řazení.
 
 
-class StenoRecnici(TabulkaStenoRecniciMixin, Steno, Osoby):
+class Stenorec(TabulkaStenoRecMixin, Steno, Osoby):
 
     def __init__(self, *args, **kwargs):
-        log.debug('--> StenoRecnici')
+        log.debug('--> Stenorec')
 
-        super(StenoRecnici, self).__init__(*args, **kwargs)
+        super(Stenorec, self).__init__(*args, **kwargs)
 
         self.nacti_steno_recniky()
 
         # Merge steno
         suffix = "__steno"
-        self.tbl['steno_recnici'] = pd.merge(left=self.tbl['steno_recnici'], right=self.tbl['steno'], on='id_steno', suffixes = ("", suffix), how='left')
-        self.drop_by_inconsistency(self.tbl['steno_recnici'], suffix, 0.1, "steno_recnici", "steno", inplace=True)
+        self.tbl['steno_rec'] = pd.merge(left=self.tbl['steno_rec'], right=self.tbl['steno'], on='id_steno', suffixes = ("", suffix), how='left')
+        self.drop_by_inconsistency(self.tbl['steno_rec'], suffix, 0.1, "steno_rec", "steno", inplace=True)
 
         if self.volebni_obdobi != -1:
-            self.tbl['steno_recnici'] = self.tbl['steno_recnici'][self.tbl['steno_recnici'].id_organ == self.snemovna.id_organ]
+            self.tbl['steno_rec'] = self.tbl['steno_rec'][self.tbl['steno_rec'].id_organ == self.snemovna.id_organ]
 
         # Merge osoby
         suffix = "__osoby"
-        self.tbl['steno_recnici'] = pd.merge(left=self.tbl['steno_recnici'], right=self.tbl['osoby'], on='id_osoba', suffixes = ("", suffix), how='left')
-        self.drop_by_inconsistency(self.tbl['steno_recnici'], suffix, 0.1, 'steno_rec', 'osoby', inplace=True)
+        self.tbl['steno_rec'] = pd.merge(left=self.tbl['steno_rec'], right=self.tbl['osoby'], on='id_osoba', suffixes = ("", suffix), how='left')
+        self.drop_by_inconsistency(self.tbl['steno_rec'], suffix, 0.1, 'steno_rec', 'osoby', inplace=True)
 
         # Merge bod schuze
         #suffix = "__bod_schuze"
         #self.steno_rec = pd.merge(left=self.steno_rec, right=self.bod_schuze, on='id_bod', suffixes = ("", suffix), how='left')
         #self.steno_rec = self.drop_by_inconsistency(self.steno_rec, suffix, 0.1, 'steno_rec', 'bod_schuze')
 
-        self.nastav_dataframe(self.tbl['steno_recnici'])
+        self.nastav_dataframe(self.tbl['steno_rec'])
 
-        log.debug('<-- StenoRecnici')
+        log.debug('<-- Stenorec')
 

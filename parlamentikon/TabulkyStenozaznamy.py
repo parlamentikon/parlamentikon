@@ -7,6 +7,7 @@ from parlamentikon.setup_logger import log
 class TabulkaStenoMixin(object):
     def nacti_steno(self):
         path = f"{self.parameters['data_dir']}/steno.unl"
+        self.paths['steno'] = path
         header = {
             'id_steno': MItem('Int64', 'Identifikátor stenozáznamu'),
             'id_organ': MItem('Int64', 'Identifikátor orgánu stenozáznamu (v případě PS je to volební období), viz Organy:id_organ.'),
@@ -33,6 +34,7 @@ class TabulkaStenoMixin(object):
 class TabulkaStenoBodMixin(object):
     def nacti_steno_bod(self):
         path = f"{self.parameters['data_dir']}/steno_bod.unl"
+        self.paths['steno_bod'] = path
         header = {
                 'id_steno': MItem('Int64', 'Identifikátor stenozáznamu, viz steno:id_steno.'),
                 'aname': MItem('Int64', 'Pozice v indexu jednacího dne.'),
@@ -46,9 +48,10 @@ class TabulkaStenoBodMixin(object):
         self.tbl['steno_bod'], self.tbl['_steno_bod'] = df, _df
 
 
-class TabulkaStenoRecniciMixin(object):
+class TabulkaStenoRecMixin(object):
     def nacti_steno_recniky(self):
         path = f"{self.parameters['data_dir']}/rec.unl"
+        self.paths['steno_rec'] = path
         header = {
                 'id_steno': MItem('Int64', 'Identifikátor stenozáznamu, viz Steno:id_steno.'),
                 'id_osoba': MItem('Int64', 'Identifikátor osoby, viz Osoby:id_osoba.'),
@@ -58,14 +61,14 @@ class TabulkaStenoRecniciMixin(object):
         }
 
         _df = pd.read_csv(path, sep="|", names = header,  index_col=False, encoding='cp1250')
-        df = pretypuj(_df, header, 'steno_recnici')
-        self.rozsir_meta(header, tabulka='steno_recnici', vlastni=False)
+        df = pretypuj(_df, header, 'steno_rec')
+        self.rozsir_meta(header, tabulka='steno_rec', vlastni=False)
 
         mask = { None: 'neznámo', 0: 'neznámo', 1: 'nezpracováno', 2: 'předsedající (ověřeno)',
             3: 'řečník (ověřeno)', 4: 'předsedající', 5: 'řečník' }
         df['druh'] = mask_by_values(df.druh__ORIG, mask).astype('string')
-        self.meta.nastav_hodnotu('druh', dict(popis='Druh vystoupení řečníka.', tabulka='steno_recnici', vlastni=True))
+        self.meta.nastav_hodnotu('druh', dict(popis='Druh vystoupení řečníka.', tabulka='steno_rec', vlastni=True))
 
-        self.tbl['steno_recnici'], self.tbl['_steno_recnici'] = df, _df
+        self.tbl['steno_rec'], self.tbl['_steno_rec'] = df, _df
 
 

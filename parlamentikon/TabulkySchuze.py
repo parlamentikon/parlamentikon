@@ -17,6 +17,7 @@ class TabulkaSchuzeMixin(object):
         # Pro každou schůzi jsou v tabulce nejvýše dva záznamy, jeden vztahující se k návrhu pořadu, druhý ke schválenému pořadu.
         # I v případě neschválení pořadu schůze jsou dva záznamy, viz schuze:pozvanka a schuze_stav:stav.
         path = f"{self.parameters['data_dir']}/schuze.unl"
+        self.paths['schuze'] = path
         header = {
           'id_schuze': MItem('Int64', 'Identifikátor schůze, není to primární klíč, je nutno používat i položku schuze:pozvanka. Záznamy schůzí stejného orgánu a stejného čísla (tj. schuze:id_org a schuze:schuze), mají stejné schuze:id_schuze a liší se pouze v schuze:pozvanka.'),
           'id_org': MItem('Int64', 'Identifikátor orgánu, viz Organy:id_org.'),
@@ -52,6 +53,7 @@ class TabulkaSchuzeMixin(object):
 class TabulkaSchuzeStavMixin(object):
    def nacti_schuze_stav(self):
         path = f"{self.parameters['data_dir']}/schuze_stav.unl"
+        self.paths['schuze_stav'] = path
         header = {
             'id_schuze': MItem('Int64', 'Identifikátor schůze, viz Schuze:id_schuze.'),
             'stav__ORIG': MItem('Int64', 'Stav schůze: 1 - OK, 2 - pořad schůze nebyl schválen a schůze byla ukončena.'),
@@ -79,6 +81,7 @@ class TabulkaSchuzeStavMixin(object):
 class TabulkaBodStavMixin(object):
     def nacti_bod_stav(self):
         path = f"{self.parameters['data_dir']}/bod_stav.unl"
+        self.paths['bod_stav'] = path
         header = {
             'id_bod_stav': MItem('Int64', 'Typ stavu bodu schůze: typ 3 - neprojednatelný znamená vyřazen z pořadu či neprojednatelný z důvodu legislativního procesu.'),
             'popis': MItem('string', 'Popis stavu bodu.')
@@ -99,6 +102,7 @@ class TabulkaBodStavMixin(object):
 class TabulkaBodSchuzeMixin(object):
     def nacti_bod_schuze(self):
         path = f"{self.parameters['data_dir']}/bod_schuze.unl"
+        self.paths['bod_schuze'] = path
         header = {
             'id_bod': MItem('Int64', 'Identifikátor bodu pořadu schůze, není to primární klíč, je nutno používat i položku bod_schuze:pozvanka. Záznamy se stejným id_bod odkazují na stejný bod, i když číslo bodu může být rozdílné (během schvalování pořadu schůze se pořadí bodů může změnit).'),
             'id_schuze': MItem('Int64', 'Identifikátor schůze, viz Schuze:id_schuze a též schuze:pozvanka.'),

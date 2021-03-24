@@ -27,7 +27,7 @@ from parlamentikon.setup_logger import log
 # Texty se stahují z internetových stránek PS, viz. např. https://www.psp.cz/eknih/2017ps/stenprot/001schuz/s001001.htm
 
 
-class Stenotexty(TabulkaStenotextyMixin, StenoRecnici, Steno, ZarazeniOsoby, Organy, Osoby, SnemovnaDataFrame):
+class Stenotexty(TabulkaStenotextyMixin, Stenorec, Steno, ZarazeniOsoby, Organy, Osoby, SnemovnaDataFrame):
 
     def __init__(self, stahni=True, limit=-1, soubezne_stahovani_max=12, soubezne_zpracovani_max=-1, *args, **kwargs):
         log.debug('--> StenoTexty')
@@ -58,7 +58,7 @@ class Stenotexty(TabulkaStenotextyMixin, StenoRecnici, Steno, ZarazeniOsoby, Org
         self.meta.nastav_hodnotu('id_rec_surrogate', dict(popis='Identifikace řečníka na základě zpětmého hledání v stenozáznamech (turn).', tabulka='df', vlastni=True))
 
         # připoj osobu ze steno_rec ... we simply add id_osoba to places where it's missing
-        m = pd.merge(left=self.tbl['steno_texty'], right=self.tbl['steno_recnici'][['schuze', "turn", "aname", 'id_osoba']], left_on=["schuze", "turn_surrogate", "id_rec_surrogate"], right_on=["schuze", "turn", "aname"], how="left")
+        m = pd.merge(left=self.tbl['steno_texty'], right=self.tbl['steno_rec'][['schuze', "turn", "aname", 'id_osoba']], left_on=["schuze", "turn_surrogate", "id_rec_surrogate"], right_on=["schuze", "turn", "aname"], how="left")
         ids = m[m.id_osoba_x.eq(m.id_osoba_y)].index
         ne_ids = set(m.index)-set(ids)
         assert m[m.index.isin(ne_ids) & (~m.id_osoba_x.isna())].size / m[m.index.isin(ne_ids)].size < 0.1 # This is a consistency sanity check
@@ -66,11 +66,11 @@ class Stenotexty(TabulkaStenotextyMixin, StenoRecnici, Steno, ZarazeniOsoby, Org
         m['turn'] = m['turn_x']
         self.tbl['steno_texty'] = m.drop(labels=['id_osoba_x', 'id_osoba_y', 'turn_y', 'turn_x', 'aname'], axis=1)
 
-        # Merge steno_recnici
-        suffix = "__steno_recnici"
-        self.tbl['steno_texty'] = pd.merge(left=self.tbl['steno_texty'], right=self.tbl['steno_recnici'], left_on=["schuze", "turn_surrogate", "id_rec_surrogate"], right_on=['schuze', 'turn', 'aname'], suffixes = ("", suffix), how='left')
-        self.tbl['steno_texty'] = self.tbl['steno_texty'].drop(labels=['turn__steno_recnici'], axis=1) # this inconsistency comes from the 'turn-fix'
-        self.drop_by_inconsistency(self.tbl['steno_texty'], suffix, 0.1, 'steno_texty', 'steno_recnici', inplace=True)
+        # Merge steno_rec
+        suffix = "__steno_rec"
+        self.tbl['steno_texty'] = pd.merge(left=self.tbl['steno_texty'], right=self.tbl['steno_rec'], left_on=["schuze", "turn_surrogate", "id_rec_surrogate"], right_on=['schuze', 'turn', 'aname'], suffixes = ("", suffix), how='left')
+        self.tbl['steno_texty'] = self.tbl['steno_texty'].drop(labels=['turn__steno_rec'], axis=1) # this inconsistency comes from the 'turn-fix'
+        self.drop_by_inconsistency(self.tbl['steno_texty'], suffix, 0.1, 'steno_texty', 'steno_rec', inplace=True)
 
         # Merge osoby
         suffix = "__osoby"

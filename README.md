@@ -3,32 +3,38 @@ Parlamentikon
 
 Co je Parlamentikon?
 --------------------
-Parlamentikon je knihovna zpřístupňující vybraná data z Poslanecké sněmovny ČR pomocí pandas tabulek. Součástí projektu jsou jupyter notebooky, které ukazují možné příklady použití.
+Parlamentikon je knihovna zpřístupňující vybraná data z Poslanecké sněmovny ČR pomocí pandas tabulek. Cílem je usnadnit načítání dat a tím umožnit následnou analýzu.
 
-Výstupy z ukázkových notebooků jsou každodenně aktualizované pomocí Github Actions. Lze si je prohlédnout na webu, případně si je lze pustit v prostředí Google Colab.
+Součástí projektu jsou jupyter notebooky, které ukazují možné příklady použití.
+
+Výstupy z ukázkových notebooků jsou každodenně aktualizované pomocí Github Actions. Lze si je prohlédnout online, případně si je lze pustit v prostředí Google Colab.
 
 
 Kde si lze prohlédnout ukázkové notebooky?
 -------------------------------------------
-* [Podobnost_hlasovani.ipynb](notebooks/Podobnost_hlasovani.ipynb): Analýza podobnosti hlasování v Poslanecké sněmovně (pro poslance i strany):
+* Podobnost hlasování: Jak se podobá hlasování jednotlivých poslanců a poslankyň? Které strany hlasují podobně?
   - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Podobnost_hlasovani.html)
-  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Podobnost_hlasovani.ipynb){:target="_blank"}
-* [Jednomyslnost_hlasovani.ipynb](notebooks/Jednomyslnost_hlasovani.ipynb):
+  - <a href="https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Podobnost_hlasovani.ipynb" target="_blank" rel="noopener noreferrer">spusť na GColab</a>
+  - [kód](notebooks/Podobnost_hlasovani.ipynb)
+* Jednomyslnost hlasováni: Při kterých hlasováních byla největší shoda? Při kterých nejmenší?
   - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Jednomyslnost_hlasovani.html)
-  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Jednomyslnost_hlasovani.ipynb){:target="_blank"}
-* [Omluvy.ipynb](notebooks/Omluvy.ipynb):
+  - <a href="https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Jednomyslnost_hlasovani.ipynb" target="_blank" rel="noopener noreferrer">spusť na GColab</a>
+  - [kód](notebooks/Jednomyslnost_hlasovani.ipynb)
+* Omluvy: Kdo se omlouval ze schůzí PS nejvíce? Kdo nejméně?
   - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Omluvy.html)
-  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Omluvy.ipynb){:target="_blank"}
-
-* [Hlasovani.ipynb](notebooks/Hlasovani.ipynb): Analýza hlasování v Poslanecké sněmovně (poslední volební období):
+  - <a href="https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Omluvy.ipynb" target="_blank" rel="noopener noreferrer">spusť na GColab</a>
+  - [kód](notebooks/Omluvy.ipynb)
+* Hlasování: Kdy proběhlo nejvíce hlasování? Jak se v PS hlasuje?
   - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Hlasovani.html)
-  - [pusť na Google Colab](https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Hlasovani.ipynb){:target="_blank"}
+  - <a href="https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Hlasovani.ipynb" target="_blank" rel="noopener noreferrer">spusť na GColab</a>
+  - [kód](notebooks/Hlasovani.ipynb)
+
 
 
 Jaké jsou prerekvizity pro lokální běh?
------------------------
+----------------------------------------
 Nutné:
-- python3.7
+- python3.7 (testováno pro tuto verzi pythonu)
 
 Doporučené:
 - virtualizace postředí python (virtualenv, conda, ...)
@@ -44,7 +50,7 @@ Jak lze Parlamentikon použít?
 2. `cd parlamentikon`
 4. `pip install -r requirements.txt` - Nainstaluje potřebné závislosti knihovny.
 4. `pip install .` - Nainstaluje lokálně knihovnu Parlamentikon.
-5. import v kódu (python): 
+5. import v kódu (python):
 ```
 from parlamentikon.PoslanciOsoby import Poslanci
 p = Poslanci()
@@ -57,7 +63,7 @@ Která data Parlamentikon zpřístupňuje?
 * [Hlasování](https://www.psp.cz/sqw/hp.sqw?k=1302)
 * [Schůze](https://www.psp.cz/sqw/hp.sqw?k=1308)
 * [Stenozáznamy](https://www.psp.cz/sqw/hp.sqw?k=1310)
-* Stenotexty (pomocí scrapingu, zatím ve velmi nedokonalém tvaru)
+* [Stenotexty](https://www.psp.cz/eknih/2017ps/stenprot/index.htm): Data se stahují pomocí scrapingu. Zatím ve velmi nedokonalém stavu.
 
 
 Testování knihovny

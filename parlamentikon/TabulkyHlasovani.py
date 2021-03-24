@@ -76,7 +76,7 @@ class TabulkaZmatecneHlasovaniMixin(object):
     def nacti_zmatecne_hlasovani(self):
         # Hlasování, která byla prohlášena za zmatečné, tj. na jejich výsledek nebyl brán zřetel
         path = f"{self.parameters['data_dir']}/zmatecne.unl"
-        self.paths['zmatecne_hlasovani'] = path
+        self.paths['zmatecne'] = path
         header = {
             "id_hlasovani": MItem("Int64", 'Identifikátor hlasování.')
         }
@@ -90,7 +90,7 @@ class TabulkaZpochybneniHlasovaniMixin(object):
     # Načti tabulku zpochybneni hlasovani (hl_check)
     def nacti_zpochybneni_hlasovani(self):
         path = f"{self.parameters['data_dir']}/hl{self.volebni_obdobi}z.unl"
-        self.paths['zpochybneni_hlasovani'] = path
+        self.paths['zpochybneni'] = path
         header = {
             "id_hlasovani": MItem('Int64', 'Identifikátor hlasování, viz Hlasovani:id_hlasovani.'),
             "turn": MItem('Int64', 'Číslo stenozáznamu, ve kterém je první zmínka o zpochybnění hlasování.'),
@@ -122,12 +122,12 @@ class TabulkaZpochybneniHlasovaniMixin(object):
         ).groupby('id_hlasovani').tail(1).sort_index()
 
         df['je_platne'] = df.index.isin(platne_zh.index)
-        self.meta.nastav_hodnotu("Indikátor platného zpochybnění. Za platné zpochybnění určitého hlasování "
+        self.meta.nastav_hodnotu('je_platne', dict(popis="Indikátor platného zpochybnění. Za platné zpochybnění určitého hlasování "
                 "považujeme takové, které je v tabulce uvedené později, "
                 "a 'mode__KAT' je buď s příznakem 'pouze pro stenozáznam', "
                 "nebo má příznak 'žádost o opakování', "
                 "přičemž o opakování hlasování se hlasovalo (viz ZpochybneniHlasovani:id_h2)",
-            dict(popis='Indikátor existence stenozáznamu', tabulka='zpochybneni', vlastni=True))
+            tabulka='zpochybneni', vlastni=True))
 
 
         self.tbl['zpochybneni'], self.tbl['_zpochybneni'] = df, _df
@@ -136,7 +136,7 @@ class TabulkaHlasovaniVazbaStenozaznamMixin(object):
     def nacti_hlasovani_vazba_stenozaznam(self):
         ''' Načte tabulku vazeb hlasovani na stenozaznam.'''
         path = f"{self.parameters['data_dir']}/hl{self.volebni_obdobi}v.unl"
-        self.paths['hlasovani_vazba_stenozaznam'] = path
+        self.paths['vazba_stenozaznam'] = path
         header = {
             "id_hlasovani": MItem('Int64', 'Identifikátor hlasování, viz hl_hlasovani:id_hlasovani'),
             "turn": MItem('Int64', 'Číslo stenozáznamu'),
@@ -225,12 +225,12 @@ class TabulkaHlasovaniPoslanciMixin(object):
           frames.append(pd.read_csv(f, sep="|", names = header,  index_col=False, encoding='cp1250'))
 
         _df = pd.concat(frames, ignore_index=True)
-        df = pretypuj(_df, header, name='hlasovani_poslance')
-        self.rozsir_meta(header, tabulka='hlasovani_poslance', vlastni=False)
+        df = pretypuj(_df, header, name='hlasovani_poslanci')
+        self.rozsir_meta(header, tabulka='hlasovani_poslanci', vlastni=False)
 
         mask = {'A': 'ano', 'B': 'ne', 'N': 'ne', 'C': 'zdržení se', 'F': 'nehlasování', '@': 'nepřihlášení', 'M': 'omluva', 'W': 'hlasování bez slibu', 'K': 'zdržení/nehlasování'}
         df['vysledek'] = mask_by_values(df.vysledek__ORIG, mask).astype('string')
-        self.meta.nastav_hodnotu('vysledek', dict(popis='Hlasování jednotlivého poslance.', tabulka='hlasovani_poslance', vlastni=True))
+        self.meta.nastav_hodnotu('vysledek', dict(popis='Hlasování jednotlivého poslance.', tabulka='hlasovani_poslanci', vlastni=True))
 
-        self.tbl['hlasovani_poslance'], self.tbl['_hlasovani_poslance'] = df, _df
+        self.tbl['hlasovani_poslanci'], self.tbl['_hlasovani_poslanci'] = df, _df
 

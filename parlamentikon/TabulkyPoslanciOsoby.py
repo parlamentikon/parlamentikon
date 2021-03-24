@@ -14,6 +14,7 @@ from parlamentikon.setup_logger import log
 class TabulkaTypOrganMixin(object):
     def nacti_typ_organ(self):
         path = f"{self.parameters['data_dir']}/typ_organu.unl"
+        self.paths['typ_organ'] = path
         header = {
             'id_typ_organ': MItem('Int64', 'Identifikátor typu orgánu'),
             'typ_id_typ_organ': MItem('Int64', 'Identifikátor nadřazeného typu orgánu (TypOrgan:id_typ_organ), pokud je null či nevyplněno, pak nemá nadřazený typ'),
@@ -31,6 +32,7 @@ class TabulkaTypOrganMixin(object):
 class TabulkaOrganyMixin(object):
     def nacti_organy(self):
         path = f"{self.parameters['data_dir']}/organy.unl"
+        self.paths['organy'] = path
         header = {
             "id_organ": MItem('Int64', 'Identifikátor orgánu'),
             "organ_id_organ": MItem('Int64', 'Identifikátor nadřazeného orgánu, viz Organy:id_organ'),
@@ -53,6 +55,7 @@ class TabulkaOrganyMixin(object):
 class TabulkaTypFunkceMixin(object):
     def nacti_typ_funkce(self):
         path = f"{self.parameters['data_dir']}/typ_funkce.unl"
+        self.paths['typ_funkce'] = path
         header = {
             'id_typ_funkce': MItem('Int64', 'Identifikator typu funkce'),
             'id_typ_organ': MItem('Int64', 'Identifikátor typu orgánu, viz TypOrgan:id_typ_organ'),
@@ -77,6 +80,7 @@ class TabulkaTypFunkceMixin(object):
 class TabulkaFunkceMixin(object):
     def nacti_funkce(self):
         path = f"{self.parameters['data_dir']}/funkce.unl"
+        self.paths['funkce'] = path
         header = {
             "id_funkce": MItem('Int64', 'Identifikátor funkce, používá se v ZarazeniOsoby:id_fo'),
             "id_organ": MItem('Int64', 'Identifikátor orgánu, viz Organy:id_organ'),
@@ -102,6 +106,7 @@ class TabulkaOsobyMixin(object):
         # Obsahuje jména osob, které jsou zařazeni v orgánech.
         # Vzhledem k tomu, že k jednoznačnému rozlišení osob často není dostatek informací, je možné, že ne všechny záznamy odkazují na jedinečné osoby, tj. některé osoby jsou v tabulce vícekrát.
         path = f"{self.parameters['data_dir']}/osoby.unl"
+        self.paths['osoby'] = path
         header = {
             "id_osoba": MItem("Int64", 'Identifikátor osoby'),
             "pred": MItem('string', 'Titul pred jmenem'),
@@ -137,6 +142,7 @@ class TabulkaOsobaExtraMixin(object):
     def nacti_osoba_extra(self):
     # Tabulka obsahuje vazby na externí systémy. Je-li typ = 1, pak jde o vazbu na evidenci senátorů na senat.cz
         path = f"{self.parameters['data_dir']}/osoba_extra.unl"
+        self.paths['osoba_extra'] = path
         header = {
             'id_osoba': MItem('Int64', 'Identifikátor osoby, viz Osoba:id_osoba'),
             'id_organ': MItem('Int64', 'Identifikátor orgánu, viz Organy:id_organ'),
@@ -155,6 +161,7 @@ class TabulkaOsobaExtraMixin(object):
 class TabulkaZarazeniOsobyMixin(object):
     def nacti_zarazeni_osoby(self):
         path = f"{self.parameters['data_dir']}/zarazeni.unl"
+        self.paths['zarazeni_osoby'] = path
         header = {
             'id_osoba': MItem('Int64', 'Identifikátor osoby, viz Osoby:id_osoba'),
             'id_of': MItem('Int64', 'Identifikátor orgánu či funkce: pokud je zároveň nastaveno zarazeni:cl_funkce == 0, pak id_o odpovídá Organy:id_organ, pokud cl_funkce == 1, pak odpovídá Funkce:id_funkce.'),
@@ -188,6 +195,7 @@ class TabulkaPoslanciMixin(object):
         # Některé údaje jsou pouze v aktuálním volebním období.
     def nacti_poslance(self):
         path = f"{self.parameters['data_dir']}/poslanec.unl"
+        self.paths['poslanci'] = path
         header = {
             "id_poslanec": MItem('Int64', 'Identifikátor poslance'),
             "id_osoba": MItem('Int64', 'Identifikátor osoby, viz Osoby:id_osoba'),
@@ -215,6 +223,7 @@ class TabulkaPoslanciPkgpsMixin(object):
     def nacti_poslanci_pkgps(self):
         # Obsahuje GPS souřadnice regionálních kanceláří poslanců.
         path = f"{self.parameters['data_dir']}/pkgps.unl"
+        self.paths['poslanci_pkgps'] = path
         header = {
             'id_poslanec': MItem('Int64', 'Identifikátor poslance, viz Poslanci:id_poslanec'),
             'adresa': MItem('string', 'Adresa kanceláře, jednotlivé položky jsou odděleny středníkem'),
