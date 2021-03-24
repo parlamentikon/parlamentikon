@@ -78,6 +78,6 @@ Pokrytí testy je mizivé. Pro každou skupinu tabulek je možné pustit "integr
 TODO
 ------
 - třída Stenotexty
- - stahování [komprimovaných dat](https://www.psp.cz/eknih/2017ps/stenprot/zip/)
- - přidat časový parametr (od, do) a umožnit inkrementální stahování a zpracování dat
+  - stahování [komprimovaných dat](https://www.psp.cz/eknih/2017ps/stenprot/zip/)
+  - přidat časový parametr (od, do) a umožnit inkrementální stahování a zpracování dat
 - testy
