@@ -7,7 +7,7 @@ Parlamentikon je knihovna zpřístupňující  vybraná [data agend](https://www
 
 Součástí projektu jsou jupyter notebooky, které ukazují možné příklady použití.
 
-Výstupy z ukázkových notebooků jsou každodenně aktualizované pomocí Github Actions. Lze si je prohlédnout online, případně si je lze pustit v prostředí Google Colab.
+Výstupy z ukázkových notebooků jsou každodenně aktualizované pomocí Github Actions. Lze si je prohlédnout online, případně si lze notebooky pustit v prostředí Google Colab.
 
 Detailnější informace ke knihovně viz. [parlamentikon/README.md](parlamentikon/README.md).
 
