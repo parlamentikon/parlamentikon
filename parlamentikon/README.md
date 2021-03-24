@@ -64,10 +64,10 @@ Jmenné konvence
 ----------------
 Pokoušeli jsme se zachovat jmenné konvence [zdrojových dat](https://www.psp.cz/sqw/hp.sqw?k=1300). Z hlediska konzistence pojmenovávání se nejedná pokaždé o optimální možnost. Výhodou zvoleného přístupu je snadnější srovnání s originálem.
 
-* Tabulky a sloupce tabulek jsou česky dle konvence v zdrojových datech. Jen výjimečně upravujeme pád nebo číslo (ze singuláru do plurálu atp.).
-* Proměnné a funkce, které se semanticky vztahují k dění v poslanecké sněmovně, jsou česky bez diakritiky.
-* Ostatní proměnné a funkce jsou anglicky.
-* Komentáře a vysvětlení v kódu a atributu meta jsou česky s diakritikou.
+- Tabulky a sloupce tabulek jsou česky dle konvence v zdrojových datech. Jen výjimečně upravujeme pád nebo číslo (ze singuláru do plurálu atp.).
+- Proměnné a funkce, které se semanticky vztahují k dění v poslanecké sněmovně, jsou česky bez diakritiky.
+- Ostatní proměnné a funkce jsou anglicky.
+- Komentáře a vysvětlení v kódu a atributu meta jsou česky s diakritikou.
 
 Testování knihovny
 ------------------
@@ -77,7 +77,7 @@ Pokrytí testy je mizivé. Pro každou skupinu tabulek je možné pustit "integr
 
 TODO
 ------
-* třída Stenotexty
- * stahování [komprimovaných dat](https://www.psp.cz/eknih/2017ps/stenprot/zip/)
- * přidat časový parametr (od, do) a umožnit inkrementální stahování a zpracování dat
-* testy
+- třída Stenotexty
+ - stahování [komprimovaných dat](https://www.psp.cz/eknih/2017ps/stenprot/zip/)
+ - přidat časový parametr (od, do) a umožnit inkrementální stahování a zpracování dat
+- testy
