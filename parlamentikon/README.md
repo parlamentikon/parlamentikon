@@ -1,10 +1,40 @@
 Parlamentikon - informace o knihovně
 =====================================
 
+
 Co je knihovna Parlamentikon?
 -----------------------------
 Knihovna Parlamentikon zpřístupňuje vybraná [data agend](https://www.psp.cz/sqw/hp.sqw?k=1300) z Poslanecké sněmovny ČR pomocí pandas tabulek. Cílem je usnadnit načítání dat, a tím umožnit následnou analýzu.
 
+
+Prerekvizity pro lokální běh
+----------------------------------------
+Nutné:
+- python3.7 (testováno pro tuto verzi pythonu)
+
+Doporučené:
+- virtualizace postředí python (virtualenv, conda, ...)
+
+
+Instalace
+----------
+
+1. `git clone https://github.com/parlamentikon/parlamentikon.git`
+3. `python3 -m venv my-custom-venv && source my-custom-venv/bin/activate`
+ - Použijte vhodnou verzi pythonu (>=3.7)
+ - Prostředí <i>my-custom-venv</i> pojmenujte dle svého uvážení.
+2. `cd parlamentikon`
+4. `pip install -r requirements.txt` - Nainstaluje potřebné závislosti knihovny.
+4. `pip install .` - Nainstaluje lokálně knihovnu Parlamentikon.
+
+
+Použítí
+--------
+```python
+from parlamentikon.PoslanciOsoby import Poslanci # Importuje třídu
+p = Poslanci() # Automaticky stáhne data ze stránek PS ČR a sestaví výslednou pandas tabulku
+p.head() # Zobrazí data
+```
 
 Struktura souborů
 ----------------------
@@ -39,10 +69,15 @@ Pokoušeli jsme se zachovat jmenné konvence [zdrojových dat](https://www.psp.c
 * Ostatní proměnné a funkce jsou anglicky.
 * Komentáře a vysvětlení v kódu a atributu meta jsou česky s diakritikou.
 
+Testování knihovny
+------------------
+Pokrytí testy je mizivé. Pro každou skupinu tabulek je možné pustit "integrační" notebooky ze složky tests/notebooks.
+
+1. make test_nb
 
 TODO
 ------
 * třída Stenotexty
- - stahování [komprimovaných dat](https://www.psp.cz/eknih/2017ps/stenprot/zip/)
- - přidat časový parametr (od, do) a umožnit inkrementální stahování a zpracování dat
-
+ * stahování [komprimovaných dat](https://www.psp.cz/eknih/2017ps/stenprot/zip/)
+ * přidat časový parametr (od, do) a umožnit inkrementální stahování a zpracování dat
+* testy

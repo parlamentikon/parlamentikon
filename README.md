@@ -33,31 +33,6 @@ Kde si lze prohlédnout ukázkové notebooky?
 
 
 
-Jaké jsou prerekvizity pro lokální běh?
-----------------------------------------
-Nutné:
-- python3.7 (testováno pro tuto verzi pythonu)
-
-Doporučené:
-- virtualizace postředí python (virtualenv, conda, ...)
-
-
-Jak lze Parlamentikon použít?
------------------------------
-
-1. `git clone https://github.com/parlamentikon/parlamentikon.git`
-3. `python3 -m venv my-custom-venv && source my-custom-venv/bin/activate`
- - Použijte vhodnou verzi pythonu (>=3.7)
- - Prostředí <i>my-custom-venv</i> pojmenujte dle svého uvážení.
-2. `cd parlamentikon`
-4. `pip install -r requirements.txt` - Nainstaluje potřebné závislosti knihovny.
-4. `pip install .` - Nainstaluje lokálně knihovnu Parlamentikon.
-5. import v kódu (python):
-```
-from parlamentikon.PoslanciOsoby import Poslanci
-p = Poslanci()
-p.head()
-```
 
 Která data Parlamentikon zpřístupňuje?
 --------------------------------------
@@ -68,9 +43,22 @@ Která data Parlamentikon zpřístupňuje?
 * [Stenotexty](https://www.psp.cz/eknih/2017ps/stenprot/index.htm): Data se stahují pomocí scrapingu. Zatím ve velmi nedokonalém stavu.
 
 
-Testování knihovny
-------------------
-Pokrytí testy je zatím mizivé. Pro každou skupinu tabulek je možné pustit "integrační" notebooky ze složky tests/notebooks.
+Instalace
+----------
 
-1. make test
+1. `git clone https://github.com/parlamentikon/parlamentikon.git`
+3. `python3 -m venv my-custom-venv && source my-custom-venv/bin/activate`
+ - Použijte vhodnou verzi pythonu (>=3.7)
+ - Prostředí <i>my-custom-venv</i> pojmenujte dle svého uvážení.
+2. `cd parlamentikon`
+4. `pip install -r requirements.txt` - Nainstaluje potřebné závislosti knihovny.
+4. `pip install .` - Nainstaluje lokálně knihovnu Parlamentikon.
 
+
+Použítí
+--------
+```python
+from parlamentikon.PoslanciOsoby import Poslanci # Importuje třídu
+p = Poslanci() # Automaticky stáhne data ze stránek PS ČR a sestaví výslednou pandas tabulku
+p.head() # Zobrazí data
+```
