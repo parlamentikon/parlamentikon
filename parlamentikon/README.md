@@ -1,41 +1,51 @@
-<b>Jmenné konvence:</b>
-* tabulky a sloupce tabulek česky dle konvence v zdrojových datech
-* proměnné, které se semanticky vztahují k dění v poslanecké sněmovně, česky bez diakritiky nebo anglicky
-* ostatní proměnné anglicky
-* komentáře a vysvětlení česky s diakritikou
-* funkce anglicky
+Parlamentikon - informace o knihovně
+=====================================
 
-Snemovna(object):
-
-poo PoslanciOsobyObecne(Snemovna):
-torg TypOrganu(PoslanciOsobyObecne):
-org Organy(TypOrganu):
-tfce TypFunkce(TypOrganu):
-fce Funkce(Organy, TypFunkce):
-os Osoby(PoslanciOsobyObecne):
-oszar OsobyZarazeni(Funkce, Organy, Osoby):
-pos Poslanci(Osoby, Organy):
-
-hlo HlasovaniObecne(Snemovna):
-hl Hlasovani(HlasovaniObecne, Organy):
-zmhl ZmatecneHlasovani(Hlasovani):
-zphl ZpochybneniHlasovani(Hlasovani):
-! zphlpos ZpochybneniHlasovaniPoslancem(ZpochybneniHlasovani, Osoby):
-! opos OmluvyPoslance(HlasovaniObecne, Poslanci, Organy):
-hlpos HlasovaniPoslance(Hlasovani, Poslanci, Organy):
-
-scho SchuzeObecne(Snemovna):
-sch Schuze(SchuzeObecne, Organy):
-!sbsch  StavBoduSchuze(SchuzeObecne):
-bsch BodSchuze(BodStav):
+Co je knihovna Parlamentikon?
+-----------------------------
+Knihovna Parlamentikon zpřístupňuje vybraná [data agend](https://www.psp.cz/sqw/hp.sqw?k=1300) z Poslanecké sněmovny ČR pomocí pandas tabulek. Cílem je usnadnit načítání dat, a tím umožnit následnou analýzu.
 
 
-! stzo StenozaznamyObecne(Snemovna):
-! stz Stenozaznamy(StenoObecne, Organy):
-! bodstz BodStenozaznamu(Steno, Organy):
-! recstz RecnikStenozaznamu(Steno, Osoby, BodSchuze):
+Struktura souborů
+-----------------
+'''
+- Hlasovani.py
+  - Obsahuje třídy zpřístupňující tabulky z [agendy Hlasování](https://www.psp.cz/sqw/hp.sqw?k=1302).
+- TabulkyHlasovani.py
+  - Obsahuje mixins pro stahování a načítání tabulek z [agendy Hlasování](https://www.psp.cz/sqw/hp.sqw?k=1302).
+- ...
+- Tabulky<i>NazevAgendy</i>
+- <i>NazevAgendy</i>
 
-stt Stenotexty(StenoRec, OsobyZarazeni):
+'''
 
-Meta(object):
+Struktura tříd, které zpřístupňují tabulky agend
+------------------------------------------------
+Třídy zpřístupňující tabulky (např. třídy Poslanci nebo ZmatecneHlasovani) vznikly děděním z pandas tabulky (subclassed pandas dataframe).
 
+Kromě samotných dat obsahují některé speciální atributy a metody (tbl, meta, paths, popis), které by měly ulehčit používání a porozumění datům. Viz příklad pro tabulku Poslanci.
+
+'''
+p = Poslanci()
+
+p.tbl # Všechny tabulky, z kterých byla tabulka Poslanci vytvořena
+p.paths # Všechny lokální cesty, ze kterých byla načtena data do tabulek p.tbl
+p.meta # Informace k sloupcům použitým v tabulce Poslanci
+p.popis() # Vypíše informace ke všem sloupcům, které by bylo možné v tabulce Poslanci použít
+'''
+
+Jmenné konvence
+----------------
+Pokoušeli jsme se zachovat jmenné konvence [zdrojových dat](https://www.psp.cz/sqw/hp.sqw?k=1300). Z hledisa konzistence se nejedná o optimální přístup. Výhodou je možnost srovnání načtených dat s originálem.
+
+* Tabulky a sloupce tabulek jsou česky dle konvence v zdrojových datech. Jen výjimečně upravujeme pád nebo číslo (ze singuláru do plurálu atp.).
+* Proměnné a funkce, které se semanticky vztahují k dění v poslanecké sněmovně, jsou česky bez diakritiky.
+* Ostatní proměnné a funkce jsou anglicky.
+* Komentáře a vysvětlení v kódu a atributu meta jsou česky s diakritikou.
+
+
+TODO
+------
+* třída Stenotexty
+ - stahování [komprimovaných dat](https://www.psp.cz/eknih/2017ps/stenprot/zip/)
+ - přidat časový parametr (od, do) a umožnit inkrementální stahování a zpracování dat

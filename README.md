@@ -3,11 +3,13 @@ Parlamentikon
 
 Co je Parlamentikon?
 --------------------
-Parlamentikon je knihovna zpřístupňující vybraná data z Poslanecké sněmovny ČR pomocí pandas tabulek. Cílem je usnadnit načítání dat a tím umožnit následnou analýzu.
+Parlamentikon je knihovna zpřístupňující  vybraná [data agend](https://www.psp.cz/sqw/hp.sqw?k=1300) z Poslanecké sněmovny ČR pomocí pandas tabulek. Cílem je usnadnit načítání dat, a tím umožnit následnou analýzu.
 
 Součástí projektu jsou jupyter notebooky, které ukazují možné příklady použití.
 
 Výstupy z ukázkových notebooků jsou každodenně aktualizované pomocí Github Actions. Lze si je prohlédnout online, případně si je lze pustit v prostředí Google Colab.
+
+Detailnější informace ke knihovně viz. [parlamentikon/README.md](parlamentikon/README.md).
 
 
 Kde si lze prohlédnout ukázkové notebooky?
