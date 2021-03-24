@@ -43,6 +43,11 @@ Která data Parlamentikon zpřístupňuje?
 * [Stenotexty](https://www.psp.cz/eknih/2017ps/stenprot/index.htm): Data se stahují pomocí scrapingu. Zatím ve velmi nedokonalém stavu.
 
 
+Příklady navazující datové analýzy
+-----------------------------------
+![Podobnost hlasování dle poslaneckého klubu](docs/img/Podobnost_hlasovani_dle_klubu.png)
+
+
 Instalace
 ----------
 

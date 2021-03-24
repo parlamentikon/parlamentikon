@@ -43,8 +43,8 @@ Struktura souborů
 - TabulkyHlasovani.py
   - Obsahuje mixins pro stahování a načítání tabulek z [agendy Hlasování](https://www.psp.cz/sqw/hp.sqw?k=1302).
 - ...
-- Tabulky<i>NazevAgendy</i>
-- <i>NazevAgendy</i>
+- Tabulky<i>NazevAgendy</i>.py
+- <i>NazevAgendy</i>.py
 
 Struktura tříd
 ------------------
