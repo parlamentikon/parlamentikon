@@ -1,8 +1,9 @@
 tools/
 
-data/
+data
 tests/data/
-notebooks/exports
+notebooks/data/
+tests/notebooks/data/
 
 .ipynb_checkpoints/
 
