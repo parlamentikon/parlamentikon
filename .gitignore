@@ -2,6 +2,7 @@ tools/
 
 data/
 tests/data/
+notebooks/exports
 
 .ipynb_checkpoints/
 
