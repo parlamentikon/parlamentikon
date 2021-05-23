@@ -1,6 +1,6 @@
 tools/
 
-data
+/data
 tests/data/
 notebooks/data/
 tests/notebooks/data/
