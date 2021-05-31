@@ -34,7 +34,10 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git pull --no-ff
-          git add notebooks/Podobnost_hlasovani.ipynb docs/Poslanci.html docs/data/pohlavi_dle_snemovny.csv
+          git add notebooks/Podobnost_hlasovani.ipynb
+          git add docs/Poslanci.html
+          git add docs/data/predikce_zastoupeni_zen_v_PS_CR.csv
+          git add docs/data/zastoupeni_zen_v_PS_CR.csv
           git commit -m "Automated run of analytic notebooks [github-actions, bot]"
 
       - name: Push notebooks
