@@ -14259,7 +14259,7 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Hlasov&#225;n&#237;">Hlasov&#225;n&#237;<a class="anchor-link" href="#Hlasov&#225;n&#237;">&#182;</a></h1>
+<h1 id="Poslanci">Poslanci<a class="anchor-link" href="#Poslanci">&#182;</a></h1>
 </div>
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
@@ -14378,21 +14378,6 @@ a.anchor-link {
 </div>
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># formát výpisu data</span>
-<span class="n">format_den</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">. %m. %Y&quot;</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
@@ -14401,14 +14386,11 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Data se budou pokaždé znovu stahovat z achivu PS</span>
 <span class="n">stahni</span><span class="o">=</span><span class="kc">True</span>
-
-<span class="c1"># Budeme analyzovat poslední volební období</span>
-<span class="n">zvolene_volebni_obdobi</span> <span class="o">=</span> <span class="kc">None</span>
 </pre></div>
 
      </div>
@@ -14424,7 +14406,7 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">vsechny_organy</span> <span class="o">=</span> <span class="n">Organy</span><span class="p">(</span><span class="n">volebni_obdobi</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
@@ -14432,7 +14414,7 @@ a.anchor-link {
 
 <span class="n">poslanci</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">snemovny</span><span class="p">:</span>
-    <span class="n">poslanci</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Poslanci</span><span class="p">(</span><span class="n">volebni_obdobi</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">poslanci</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Poslanci</span><span class="p">(</span><span class="n">volebni_obdobi</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">stahni</span><span class="o">=</span><span class="n">stahni</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14452,23 +14434,23 @@ a.anchor-link {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>2021-05-31:05:06:07 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
-2021-05-31:05:06:09 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
-2021-05-31:05:06:10 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;] because of abundance.
-2021-05-31:05:06:11 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
-2021-05-31:05:06:12 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;] because of abundance.
-2021-05-31:05:06:13 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
-2021-05-31:05:06:15 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;] because of abundance.
-2021-05-31:05:06:15 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
-2021-05-31:05:06:17 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;] because of abundance.
-2021-05-31:05:06:18 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
-2021-05-31:05:06:19 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;] because of abundance.
-2021-05-31:05:06:20 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
-2021-05-31:05:06:21 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;] because of abundance.
-2021-05-31:05:06:22 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
-2021-05-31:05:06:24 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;] because of abundance.
-2021-05-31:05:06:24 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
-2021-05-31:05:06:26 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;] because of abundance.
+<pre>2021-05-31:14:02:06 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
+2021-05-31:14:02:07 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
+2021-05-31:14:02:09 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;] because of abundance.
+2021-05-31:14:02:10 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
+2021-05-31:14:02:11 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;] because of abundance.
+2021-05-31:14:02:12 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
+2021-05-31:14:02:14 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;] because of abundance.
+2021-05-31:14:02:15 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
+2021-05-31:14:02:16 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;] because of abundance.
+2021-05-31:14:02:17 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
+2021-05-31:14:02:19 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;] because of abundance.
+2021-05-31:14:02:20 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
+2021-05-31:14:02:21 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;] because of abundance.
+2021-05-31:14:02:22 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
+2021-05-31:14:02:23 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;] because of abundance.
+2021-05-31:14:02:24 INFO     [utility.py:21] Stahuji &#39;https://www.psp.cz/eknih/cdrom/opendata/poslanci.zip&#39;.
+2021-05-31:14:02:26 WARNING  [Snemovna.py:149] While merging &#39;funkce&#39; with &#39;typ_funkce&#39;: Dropping [&#39;nazev_typ_organ_en__typ_funkce&#39;, &#39;typ_id_typ_organ__typ_funkce&#39;, &#39;typ_organ_obecny__typ_funkce&#39;, &#39;nazev_typ_organ_cz__typ_funkce&#39;, &#39;id_typ_organ__typ_funkce&#39;] because of abundance.
 </pre>
 </div>
 </div>
@@ -14477,119 +14459,99 @@ a.anchor-link {
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Zastoupen&#237;-&#382;en-v-Poslaneck&#233;-sn&#283;movn&#283;-&#268;R">Zastoupen&#237; &#382;en v Poslaneck&#233; sn&#283;movn&#283; &#268;R<a class="anchor-link" href="#Zastoupen&#237;-&#382;en-v-Poslaneck&#233;-sn&#283;movn&#283;-&#268;R">&#182;</a></h2>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#df = pd.DataFrame()</span>
-<span class="c1">#for i in snemovny:</span>
-<span class="c1">#    pos = poslanci[i][poslanci[i].od_parlament.dt.date == poslanci[i].snemovna.od_organ.date()]</span>
-<span class="c1">#    pos_dle_pohlavi = pos.groupby(&#39;pohlavi&#39;).size().to_dict() #.reset_index(name=&#39;pocet&#39;).to_dict() #.set_name(i) #.set_name(i)#.rename(i)</span>
-<span class="c1">#    pos_dle_pohlavi[&#39;snemovna&#39;] = i</span>
-<span class="c1">#    pos_dle_pohlavi[&#39;hovertemplate_zeny&#39;] = f&quot;Sněmovna: {i}&quot; +&#39;&lt;br&gt;Pohlaví: ženy&lt;br&gt;Počet: %{y}&lt;extra&gt;&lt;/extra&gt;&#39;</span>
-<span class="c1">#    pos_dle_pohlavi[&#39;hovertemplate_muzi&#39;] = f&quot;Sněmovna: {i}&quot; +&#39;&lt;br&gt;Pohlaví: muži&lt;br&gt;Počet: %{y}&lt;extra&gt;&lt;/extra&gt;&#39;</span>
-<span class="c1">#    df = df.append(pos_dle_pohlavi, ignore_index=True)</span>
-<span class="c1">#df[&#39;snemovna&#39;] = df.snemovna.astype(&#39;category&#39;)</span>
-<span class="c1">#df = df.set_index(&#39;snemovna&#39;)</span>
-
-
-<span class="c1">#fig=go.Figure(data=[</span>
-<span class="c1">#    go.Bar(name=&#39;ženy&#39;, x=df.index, y=df[&#39;žena&#39;], hovertemplate=df[&#39;hovertemplate_zeny&#39;]),</span>
-<span class="c1">#    go.Bar(name=&#39;muži&#39;, x=df.index, y=df[&#39;muž&#39;], hovertemplate=df[&#39;hovertemplate_muzi&#39;])</span>
-<span class="c1">#])</span>
-<span class="c1">#layout = go.Layout(</span>
-<span class="c1">#    title=&quot;Počty poslanců ve sněmovně dle pohlaví [na začátku volebního období]&quot;,    </span>
-<span class="c1">#    plot_bgcolor=&quot;#FFFFFF&quot;,</span>
-<span class="c1">#    #hovermode=&quot;x&quot;,</span>
-<span class="c1">#    #hoverdistance=100, # Distance to show hover label of data point</span>
-<span class="c1">#    #spikedistance=1000, # Distance to show spike</span>
-<span class="c1">#    xaxis=dict(</span>
-<span class="c1">#        title=&quot;sněmovna&quot;,</span>
-<span class="c1">#        linecolor=&quot;#BCCCDC&quot;,</span>
-<span class="c1">#        type=&#39;category&#39;</span>
-<span class="c1">#    ),</span>
-<span class="c1">#    yaxis=dict(</span>
-<span class="c1">#        title=&quot;počet&quot;,</span>
-<span class="c1">#        linecolor=&quot;#BCCCDC&quot;,</span>
-<span class="c1">#        showspikes=True,</span>
-<span class="c1">#        spikethickness=1,</span>
-<span class="c1">#        spikedash=&quot;dot&quot;,</span>
-<span class="c1">#        spikecolor=&quot;#999999&quot;,</span>
-<span class="c1">#        spikemode=&quot;across&quot;,</span>
-<span class="c1">#    )</span>
-<span class="c1">#)</span>
-
-<span class="c1">#fig.update_layout(layout)</span>
-
-<span class="c1">#fig.update_layout(barmode=&#39;stack&#39;)</span>
-<span class="c1">#fig.show()</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pohlavi_dle_snemovny</span><span class="p">(</span><span class="n">snemovna</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pohlavi_dle_snemovny</span><span class="p">(</span><span class="n">snemovna</span><span class="p">,</span> <span class="n">dalsi_snemovna</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">poslanci</span><span class="p">[</span><span class="n">snemovna</span><span class="p">]</span>
     
+    <span class="c1"># Najdi datum konce aktuální sněmovny.</span>
+    <span class="n">last_do_parlament</span> <span class="o">=</span> <span class="n">vsechny_organy</span><span class="p">[</span><span class="n">vsechny_organy</span><span class="o">.</span><span class="n">id_organ</span> <span class="o">==</span> <span class="n">x</span><span class="o">.</span><span class="n">id_organ</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">do_organ</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># Poslanci nemohou mít mandát platný déle než do konce aktuální sněmovny. </span>
+    <span class="n">x</span><span class="o">.</span><span class="n">do_parlament</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">do_parlament</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">last_do_parlament</span><span class="p">,</span> <span class="n">last_do_parlament</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+    
+    <span class="k">if</span> <span class="n">dalsi_snemovna</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Najdi datum začátku další sněmovny.</span>
+        <span class="n">next_od_parlament</span> <span class="o">=</span> <span class="n">vsechny_organy</span><span class="p">[</span><span class="n">vsechny_organy</span><span class="o">.</span><span class="n">id_organ</span> <span class="o">==</span> <span class="n">poslanci</span><span class="p">[</span><span class="n">dalsi_snemovna</span><span class="p">]</span><span class="o">.</span><span class="n">id_organ</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">od_organ</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># Poslanci nemohou mít platný mandát po začátku další sněmovny.</span>
+        <span class="n">x</span><span class="o">.</span><span class="n">do_parlament</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">do_parlament</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">next_od_parlament</span><span class="p">,</span> <span class="n">next_od_parlament</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+        <span class="c1">#print(snemovna, dalsi_snemovna, x.do_parlament.sort_values().to_list()[-1], next_od_parlament, x[x.do_parlament &gt; next_od_parlament])</span>
+       
+    <span class="c1"># Pro dny, ve kterých se mění složení poslanecké sněmovny, sečteme tyto změny vzhledem k pohlaví. </span>
+    <span class="c1"># Používáme nezávislé sčítače pro příchody a odchody.</span>
     <span class="n">zeny_od</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">pohlavi</span> <span class="o">==</span> <span class="s1">&#39;žena&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">od_parlament</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s1">&#39;zeny_od&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;od_parlament&#39;</span><span class="p">:</span> <span class="s1">&#39;datum&#39;</span><span class="p">})</span>
     <span class="n">zeny_do</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">pohlavi</span> <span class="o">==</span> <span class="s1">&#39;žena&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">do_parlament</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s1">&#39;zeny_do&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;do_parlament&#39;</span><span class="p">:</span> <span class="s1">&#39;datum&#39;</span><span class="p">})</span>
-    
-    <span class="c1">#if snemovna &lt; 2002:</span>
-    <span class="c1">#    zeny_do.index = (pd.to_datetime(zeny_do.index) + pd.DateOffset(days=1)).date</span>
-    <span class="c1">#    zeny_do.index.name = &#39;datum&#39;</span>
-
     <span class="n">muzi_od</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">pohlavi</span> <span class="o">==</span> <span class="s1">&#39;muž&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">od_parlament</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s1">&#39;muzi_od&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;od_parlament&#39;</span><span class="p">:</span> <span class="s1">&#39;datum&#39;</span><span class="p">})</span>
     <span class="n">muzi_do</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">pohlavi</span> <span class="o">==</span> <span class="s1">&#39;muž&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">do_parlament</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">,</span>  <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s1">&#39;muzi_do&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;do_parlament&#39;</span><span class="p">:</span> <span class="s1">&#39;datum&#39;</span><span class="p">})</span>
-    
-    <span class="c1">#if snemovna &lt; 2002:</span>
+
+    <span class="c1">## Datum &#39;do_parlament&#39; může být první den, kdy již poslanci nejsou ve sněmovně. Ale také poslední den platnosti mandátu.</span>
+    <span class="c1">## V devadesátých letech se nejspíš konec platnosti mandátu zaznamenával s odlišnou sémantikou než v současnosti.</span>
+    <span class="c1">## Jelikož se jedná o malé časové úseky, prozatím tuto nesrovnalost ignorujeme    </span>
+    <span class="c1">#    zeny_do.index = (pd.to_datetime(zeny_do.index) + pd.DateOffset(days=1)).date</span>
+    <span class="c1">#    zeny_do.index.name = &#39;datum&#39;</span>
     <span class="c1">#    muzi_do.index = (pd.to_datetime(muzi_do.index) + pd.DateOffset(days=1)).date</span>
     <span class="c1">#    muzi_do.index.name = &#39;datum&#39;</span>
-        
+       
+    <span class="c1"># Spojíme sčítače příchodů a odchodů ze Sněmovny do jednoho frameu.</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">zeny_od</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">muzi_od</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;datum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">muzi_do</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;datum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">zeny_do</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;datum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    
+    <span class="c1"># +R9dk0 hodnoty doplníme nulami.</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     
     <span class="c1"># Fix pandas error which converted groupby sizes from int to float</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_od&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_do&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_od&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_do&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_od&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_do&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_od&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_do&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
+    <span class="c1"># Od sčítačů příchodů do sněmovny odečteme scítače odchodů.</span>
+    <span class="c1"># Tím dostaneme pro každé &quot;zlomové datum&quot; bilanci počtu žen a mužů.</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_od&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_do&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_od&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_do&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    
+    <span class="c1"># Hodnoty by se měly posčítat na 200 (počet poslanců).</span>
+    <span class="c1"># Vzhledem k nejasné interpretaci &#39;do_parlament&#39; to v několika málo případech není pravda, ale jen na krátkou dobu.</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;check_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_cnt&#39;</span><span class="p">]</span>
     
-    <span class="c1"># pri rozpusteni snemovny se atribut do_parlament pro vsechny poslance nastavuje na urcite datum</span>
+    <span class="c1"># Pri rozpusteni snemovny se atribut &#39;do_parlament&#39; pro vsechny poslance nastavuje na urcite datum.</span>
+    <span class="c1"># Sčítač dle pohlaví pak nabývá hodnoty 0.</span>
+    <span class="c1"># Pro účely vizualizace je vhodné data doplnit ještě jeden bod s počty poslanců těsně před koncem sněmovny. </span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">check_cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])):</span>
         <span class="n">last_zeny_cnt</span><span class="p">,</span> <span class="n">last_muzi_cnt</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">zeny_cnt</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">muzi_cnt</span>
-        <span class="n">previous_snemovna_do</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">previous_snemovna_do</span><span class="p">,</span> <span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_zeny_cnt</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">previous_snemovna_do</span><span class="p">,</span> <span class="s1">&#39;muzi_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_muzi_cnt</span>
-
-        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;check_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_cnt&#39;</span><span class="p">]</span>
-
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender_ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_cnt&#39;</span><span class="p">])</span>
-
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;snemovna&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">snemovna</span>
-    
-    <span class="c1"># pro poslance v soucasne snemovne zpravidla plati: do_parlament == nan</span>
-    <span class="c1"># index s nan hodnotou prepiseme soucasnym datem</span>
+        <span class="n">before_snemovna_do</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">before_snemovna_do</span><span class="p">,</span> <span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_zeny_cnt</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">before_snemovna_do</span><span class="p">,</span> <span class="s1">&#39;muzi_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_muzi_cnt</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">before_snemovna_do</span><span class="p">,</span> <span class="s1">&#39;check_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_zeny_cnt</span> <span class="o">+</span> <span class="n">last_muzi_cnt</span>
+      
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    <span class="c1"># Pro poslance v současné sněmovně zpravidla platí: do_parlament == nan.</span>
+    <span class="c1"># Index s nan hodnotou prepíšeme současným datem.</span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])):</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="n">pd</span><span class="o">.</span><span class="n">NaT</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;now&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">&#39;Europe/Prague&#39;</span><span class="p">)},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">index_as_list</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">index_as_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s2">&quot;now&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">&#39;Europe/Prague&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index_as_list</span>
+        <span class="c1">#df.rename(index={np.NaT: pd.to_datetime(&quot;now&quot;).tz_localize(&#39;Europe/Prague&#39;)}, inplace=True)</span>
         <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s1">&#39;zeny_cnt&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">zeny_cnt</span>
         <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s1">&#39;muzi_cnt&#39;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">muzi_cnt</span>
         <span class="n">df</span><span class="p">[</span><span class="s1">&#39;check_cnt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_cnt&#39;</span><span class="p">]</span>
 
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">check_cnt</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Spočítejme nyní poměry ...</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_cnt&#39;</span><span class="p">])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_cnt&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;zeny_cnt&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;muzi_cnt&#39;</span><span class="p">])</span>
+    
+    <span class="c1"># Nastavme sněmovnu (na konstantní hodnotu).</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;snemovna&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">snemovna</span>
     
     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;zeny_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;muzi_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;zeny_cnt&#39;</span><span class="p">,</span> <span class="s1">&#39;muzi_cnt&#39;</span><span class="p">,</span> <span class="s1">&#39;check_cnt&#39;</span><span class="p">,</span> <span class="s1">&#39;snemovna&#39;</span><span class="p">]]</span>
     <span class="k">return</span> <span class="n">df</span>
 </pre></div>
 
@@ -14601,24 +14563,25 @@ a.anchor-link {
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">podily</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">snemovna</span> <span class="ow">in</span> <span class="n">snemovny</span><span class="p">:</span>
-    <span class="n">podily</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pohlavi_dle_snemovny</span><span class="p">(</span><span class="n">snemovna</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zastoupeni</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="n">podily_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">podily</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
-<span class="c1">#podily_df.index = podily_df.index.strftime(&quot;%Y-%m-%d %H:%M&quot;)</span>
+<span class="n">l_snemovny</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">snemovny</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">snemovna</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">l_snemovny</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">l_snemovny</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">dalsi_snemovna</span> <span class="o">=</span> <span class="n">l_snemovny</span><span class="p">[</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dalsi_snemovna</span> <span class="o">=</span> <span class="kc">None</span>
+        
+    <span class="n">zastoupeni</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pohlavi_dle_snemovny</span><span class="p">(</span><span class="n">snemovna</span><span class="p">,</span> <span class="n">dalsi_snemovna</span><span class="p">))</span>
 
-<span class="o">!</span> mkdir -p <span class="s2">&quot;../docs/data&quot;</span>
-<span class="n">export_path</span> <span class="o">=</span> <span class="s2">&quot;../docs/data/pohlavi_dle_snemovny.csv&quot;</span>
-<span class="n">podily_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">export_path</span><span class="p">)</span>
-<span class="o">!</span> ls -l <span class="o">{</span>export_path<span class="o">}</span>
+<span class="n">zastoupeni_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">zastoupeni</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;datum&#39;</span>
 
-<span class="n">podily_df</span><span class="p">[(</span><span class="n">podily_df</span><span class="o">.</span><span class="n">check_cnt</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">podily_df</span><span class="o">.</span><span class="n">snemovna</span> <span class="o">==</span> <span class="mi">1992</span><span class="p">)]</span>
-<span class="n">podily_df</span><span class="p">[(</span><span class="n">podily_df</span><span class="o">.</span><span class="n">check_cnt</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)]</span>
-<span class="c1">#podily_df[podily_df.snemovna == 1992]</span>
+<span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14634,14 +14597,370 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>-rw-r--r-- 1 runner docker 8097 May 31 05:06 ../docs/data/pohlavi_dle_snemovny.csv
-</pre>
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>zeny_pct</th>
+      <th>muzi_pct</th>
+      <th>zeny_cnt</th>
+      <th>muzi_cnt</th>
+      <th>check_cnt</th>
+      <th>snemovna</th>
+    </tr>
+    <tr>
+      <th>datum</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992-06-06</th>
+      <td>10.000000</td>
+      <td>90.000000</td>
+      <td>20.0</td>
+      <td>180.0</td>
+      <td>200.0</td>
+      <td>1992</td>
+    </tr>
+    <tr>
+      <th>1993-11-09</th>
+      <td>9.547739</td>
+      <td>90.452261</td>
+      <td>19.0</td>
+      <td>180.0</td>
+      <td>199.0</td>
+      <td>1992</td>
+    </tr>
+    <tr>
+      <th>1993-11-11</th>
+      <td>9.500000</td>
+      <td>90.500000</td>
+      <td>19.0</td>
+      <td>181.0</td>
+      <td>200.0</td>
+      <td>1992</td>
+    </tr>
+    <tr>
+      <th>1995-05-23</th>
+      <td>9.547739</td>
+      <td>90.452261</td>
+      <td>19.0</td>
+      <td>180.0</td>
+      <td>199.0</td>
+      <td>1992</td>
+    </tr>
+    <tr>
+      <th>1995-05-25</th>
+      <td>9.500000</td>
+      <td>90.500000</td>
+      <td>19.0</td>
+      <td>181.0</td>
+      <td>200.0</td>
+      <td>1992</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Kontrola smyslupnosti dat ... check%cnt by neměl být víc než 200.</span>
+<span class="c1"># Bylo by dobré ověřit, že hodnoty menší než 200 jsou pouze krátkodobé fluktuace, ke kterým dochází během výměny poslanců v PS.</span>
+<span class="c1"># zastoupeni_df[(zastoupeni_df.check_cnt != 200) &amp; (zastoupeni_df.snemovna == 1992)]</span>
+<span class="n">zastoupeni_df</span><span class="p">[(</span><span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">check_cnt</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>zeny_pct</th>
+      <th>muzi_pct</th>
+      <th>zeny_cnt</th>
+      <th>muzi_cnt</th>
+      <th>check_cnt</th>
+      <th>snemovna</th>
+    </tr>
+    <tr>
+      <th>datum</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1993-11-09</th>
+      <td>9.547739</td>
+      <td>90.452261</td>
+      <td>19.0</td>
+      <td>180.0</td>
+      <td>199.0</td>
+      <td>1992</td>
+    </tr>
+    <tr>
+      <th>1995-05-23</th>
+      <td>9.547739</td>
+      <td>90.452261</td>
+      <td>19.0</td>
+      <td>180.0</td>
+      <td>199.0</td>
+      <td>1992</td>
+    </tr>
+    <tr>
+      <th>1996-04-29</th>
+      <td>9.547739</td>
+      <td>90.452261</td>
+      <td>19.0</td>
+      <td>180.0</td>
+      <td>199.0</td>
+      <td>1992</td>
+    </tr>
+    <tr>
+      <th>1996-05-06</th>
+      <td>9.547739</td>
+      <td>90.452261</td>
+      <td>19.0</td>
+      <td>180.0</td>
+      <td>199.0</td>
+      <td>1992</td>
+    </tr>
+    <tr>
+      <th>1996-11-01</th>
+      <td>15.075377</td>
+      <td>84.924623</td>
+      <td>30.0</td>
+      <td>169.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1996-12-17</th>
+      <td>14.646465</td>
+      <td>85.353535</td>
+      <td>29.0</td>
+      <td>169.0</td>
+      <td>198.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1997-01-16</th>
+      <td>14.572864</td>
+      <td>85.427136</td>
+      <td>29.0</td>
+      <td>170.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1997-06-02</th>
+      <td>14.572864</td>
+      <td>85.427136</td>
+      <td>29.0</td>
+      <td>170.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1997-06-11</th>
+      <td>14.572864</td>
+      <td>85.427136</td>
+      <td>29.0</td>
+      <td>170.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1997-08-27</th>
+      <td>14.572864</td>
+      <td>85.427136</td>
+      <td>29.0</td>
+      <td>170.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1997-08-29</th>
+      <td>14.572864</td>
+      <td>85.427136</td>
+      <td>29.0</td>
+      <td>170.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1997-11-11</th>
+      <td>14.572864</td>
+      <td>85.427136</td>
+      <td>29.0</td>
+      <td>170.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1997-12-01</th>
+      <td>14.572864</td>
+      <td>85.427136</td>
+      <td>29.0</td>
+      <td>170.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1997-12-02</th>
+      <td>15.075377</td>
+      <td>84.924623</td>
+      <td>30.0</td>
+      <td>169.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1998-01-26</th>
+      <td>15.075377</td>
+      <td>84.924623</td>
+      <td>30.0</td>
+      <td>169.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1998-02-12</th>
+      <td>15.075377</td>
+      <td>84.924623</td>
+      <td>30.0</td>
+      <td>169.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>1998-02-25</th>
+      <td>15.075377</td>
+      <td>84.924623</td>
+      <td>30.0</td>
+      <td>169.0</td>
+      <td>199.0</td>
+      <td>1996</td>
+    </tr>
+    <tr>
+      <th>2001-02-28</th>
+      <td>15.656566</td>
+      <td>84.343434</td>
+      <td>31.0</td>
+      <td>167.0</td>
+      <td>198.0</td>
+      <td>1998</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Predikce-v&#253;voje-zastoupen&#237;-&#382;en-v-PS-&#268;R">Predikce v&#253;voje zastoupen&#237; &#382;en v PS &#268;R<a class="anchor-link" href="#Predikce-v&#253;voje-zastoupen&#237;-&#382;en-v-PS-&#268;R">&#182;</a></h3><p>K předpovědi budoucího zastoupení žen v PS použijeme lineární regresi.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+
+<span class="n">zastoupeni_df</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">index</span><span class="p">)]</span>
+<span class="n">zastoupeni_df</span><span class="p">[</span><span class="s1">&#39;days_from_start&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">index</span> <span class="o">-</span> <span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">days</span>
+<span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
 
 <div class="jp-OutputArea-child">
 
@@ -14669,20 +14988,16 @@ a.anchor-link {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>zeny_od</th>
-      <th>muzi_od</th>
-      <th>muzi_do</th>
-      <th>zeny_do</th>
+      <th>zeny_pct</th>
+      <th>muzi_pct</th>
       <th>zeny_cnt</th>
       <th>muzi_cnt</th>
       <th>check_cnt</th>
-      <th>gender_ratio</th>
       <th>snemovna</th>
+      <th>days_from_start</th>
     </tr>
     <tr>
       <th>datum</th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -14694,304 +15009,54 @@ a.anchor-link {
   </thead>
   <tbody>
     <tr>
+      <th>1992-06-06</th>
+      <td>10.000000</td>
+      <td>90.000000</td>
+      <td>20.0</td>
+      <td>180.0</td>
+      <td>200.0</td>
+      <td>1992</td>
+      <td>0</td>
+    </tr>
+    <tr>
       <th>1993-11-09</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
+      <td>9.547739</td>
+      <td>90.452261</td>
       <td>19.0</td>
       <td>180.0</td>
       <td>199.0</td>
-      <td>9.547739</td>
       <td>1992</td>
+      <td>521</td>
+    </tr>
+    <tr>
+      <th>1993-11-11</th>
+      <td>9.500000</td>
+      <td>90.500000</td>
+      <td>19.0</td>
+      <td>181.0</td>
+      <td>200.0</td>
+      <td>1992</td>
+      <td>523</td>
     </tr>
     <tr>
       <th>1995-05-23</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
+      <td>9.547739</td>
+      <td>90.452261</td>
       <td>19.0</td>
       <td>180.0</td>
       <td>199.0</td>
-      <td>9.547739</td>
       <td>1992</td>
+      <td>1081</td>
     </tr>
     <tr>
-      <th>1996-04-29</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
+      <th>1995-05-25</th>
+      <td>9.500000</td>
+      <td>90.500000</td>
       <td>19.0</td>
-      <td>180.0</td>
-      <td>199.0</td>
-      <td>9.547739</td>
+      <td>181.0</td>
+      <td>200.0</td>
       <td>1992</td>
-    </tr>
-    <tr>
-      <th>1996-05-06</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>19.0</td>
-      <td>180.0</td>
-      <td>199.0</td>
-      <td>9.547739</td>
-      <td>1992</td>
-    </tr>
-    <tr>
-      <th>1996-06-06</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>180.0</td>
-      <td>20.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>1992</td>
-    </tr>
-    <tr>
-      <th>1996-11-01</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>30.0</td>
-      <td>169.0</td>
-      <td>199.0</td>
-      <td>15.075377</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1996-12-17</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>29.0</td>
-      <td>169.0</td>
-      <td>198.0</td>
-      <td>14.646465</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1997-01-16</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>29.0</td>
-      <td>170.0</td>
-      <td>199.0</td>
-      <td>14.572864</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1997-06-02</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>29.0</td>
-      <td>170.0</td>
-      <td>199.0</td>
-      <td>14.572864</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1997-06-11</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>29.0</td>
-      <td>170.0</td>
-      <td>199.0</td>
-      <td>14.572864</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1997-08-27</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>29.0</td>
-      <td>170.0</td>
-      <td>199.0</td>
-      <td>14.572864</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1997-08-29</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>29.0</td>
-      <td>170.0</td>
-      <td>199.0</td>
-      <td>14.572864</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1997-11-11</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>29.0</td>
-      <td>170.0</td>
-      <td>199.0</td>
-      <td>14.572864</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1997-12-01</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>29.0</td>
-      <td>170.0</td>
-      <td>199.0</td>
-      <td>14.572864</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1997-12-02</th>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>30.0</td>
-      <td>169.0</td>
-      <td>199.0</td>
-      <td>15.075377</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1998-01-26</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>30.0</td>
-      <td>169.0</td>
-      <td>199.0</td>
-      <td>15.075377</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1998-02-12</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>30.0</td>
-      <td>169.0</td>
-      <td>199.0</td>
-      <td>15.075377</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1998-02-25</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>30.0</td>
-      <td>169.0</td>
-      <td>199.0</td>
-      <td>15.075377</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>1998-06-19</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>170.0</td>
-      <td>30.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>1996</td>
-    </tr>
-    <tr>
-      <th>2001-02-28</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>31.0</td>
-      <td>167.0</td>
-      <td>198.0</td>
-      <td>15.656566</td>
-      <td>1998</td>
-    </tr>
-    <tr>
-      <th>2002-06-20</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>168.0</td>
-      <td>32.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>1998</td>
-    </tr>
-    <tr>
-      <th>2006-06-15</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>167.0</td>
-      <td>33.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>2002</td>
-    </tr>
-    <tr>
-      <th>2010-06-03</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>163.0</td>
-      <td>37.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>2006</td>
-    </tr>
-    <tr>
-      <th>2013-08-28</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>157.0</td>
-      <td>43.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>2010</td>
-    </tr>
-    <tr>
-      <th>2017-10-26</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>159.0</td>
-      <td>41.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>2013</td>
+      <td>1083</td>
     </tr>
   </tbody>
 </table>
@@ -15004,10 +15069,130 @@ a.anchor-link {
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">zastoupeni_df</span><span class="p">[</span><span class="s1">&#39;days_from_start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">zastoupeni_df</span><span class="p">[</span><span class="s1">&#39;zeny_pct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">(</span><span class="n">copy_X</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">x_in_days_real</span> <span class="o">=</span> <span class="n">zastoupeni_df</span><span class="p">[</span><span class="s1">&#39;days_from_start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> 
+<span class="n">x_in_days_prediction</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">zastoupeni_df</span><span class="p">[</span><span class="s1">&#39;days_from_start&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">34593</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x_in_days</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x_in_days_real</span><span class="p">,</span> <span class="n">x_in_days_prediction</span><span class="p">))</span>
+
+<span class="n">x_values</span> <span class="o">=</span> <span class="n">x_in_days</span> <span class="c1">#zastoupeni_df[&#39;days_from_start&#39;].values + np.linspace(zastoupeni_df[&#39;days_from_start&#39;].max(), 34593, 50, endpoint=True)</span>
+<span class="n">x_vector</span> <span class="o">=</span> <span class="p">[[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_vector</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zastoupeni_predikce_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;zeny_pct_predikce&quot;</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">},</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">num_days</span><span class="p">)</span> <span class="k">for</span> <span class="n">num_days</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">zastoupeni_predikce_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;datum&#39;</span>
+<span class="n">zastoupeni_predikce_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>zeny_pct_predikce</th>
+    </tr>
+    <tr>
+      <th>datum</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992-06-06</th>
+      <td>11.524087</td>
+    </tr>
+    <tr>
+      <th>1993-11-09</th>
+      <td>12.103566</td>
+    </tr>
+    <tr>
+      <th>1993-11-11</th>
+      <td>12.105790</td>
+    </tr>
+    <tr>
+      <th>1995-05-23</th>
+      <td>12.726422</td>
+    </tr>
+    <tr>
+      <th>1995-05-25</th>
+      <td>12.728647</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Vizualizace">Vizualizace<a class="anchor-link" href="#Vizualizace">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
@@ -15016,9 +15201,11 @@ a.anchor-link {
     <span class="n">df</span> <span class="o">=</span> <span class="n">pohlavi_dle_snemovny</span><span class="p">(</span><span class="n">snemovna</span><span class="p">)</span>
     <span class="n">hovertemplate_zeny</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Sněmovna: </span><span class="si">{</span><span class="n">snemovna</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span><span class="s1">&#39;&lt;br&gt;Datum: %{x|</span><span class="si">%d</span><span class="s1">. %m. %Y}&lt;br&gt;Pohlaví: ženy&lt;br&gt;Počet: %</span><span class="si">{y}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
     <span class="n">hovertemplate_muzi</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Sněmovna: </span><span class="si">{</span><span class="n">snemovna</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span><span class="s1">&#39;&lt;br&gt;Datum: %{x|</span><span class="si">%d</span><span class="s1">. %m. %Y}&lt;br&gt;Pohlaví: muži&lt;br&gt;Počet: %</span><span class="si">{y}</span><span class="s1">&lt;extra&gt;&lt;/extra&gt;&#39;</span>
+    
+    <span class="c1"># Ženy</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">zeny_cnt</span><span class="p">,</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">zeny_pct</span><span class="p">,</span>
         <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;markers+lines&#39;</span><span class="p">,</span>
         <span class="c1">#line = dict(shape=&#39;linear&#39;),</span>
         <span class="n">hoverinfo</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
@@ -15026,9 +15213,11 @@ a.anchor-link {
         <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;ženy (</span><span class="si">{</span><span class="n">snemovna</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
         <span class="n">stackgroup</span><span class="o">=</span><span class="n">snemovna</span>
     <span class="p">))</span>
+    
+    <span class="c1"># Muži</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">muzi_cnt</span><span class="p">,</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">muzi_pct</span><span class="p">,</span>
         <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;muži (</span><span class="si">{</span><span class="n">snemovna</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
         <span class="n">hoverinfo</span> <span class="o">=</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
         <span class="n">hovertemplate</span><span class="o">=</span><span class="n">hovertemplate_muzi</span><span class="p">,</span>
@@ -15037,12 +15226,44 @@ a.anchor-link {
         <span class="n">stackgroup</span><span class="o">=</span><span class="n">snemovna</span>
     <span class="p">))</span>
 
+    
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">zastoupeni_predikce_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">zastoupeni_predikce_df</span><span class="o">.</span><span class="n">zeny_pct_predikce</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;ženy (predikce)&quot;</span><span class="p">,</span>
+        <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s1">&#39;dash&#39;</span><span class="p">)</span>
+    <span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_shape</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span>
+    <span class="n">x0</span><span class="o">=</span><span class="n">zastoupeni_predikce_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+    <span class="n">y0</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">x1</span><span class="o">=</span><span class="n">zastoupeni_predikce_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">y1</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s1">&#39;dot&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">middle_x</span> <span class="o">=</span> <span class="n">zastoupeni_predikce_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span>  <span class="p">(</span><span class="n">zastoupeni_predikce_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span>  <span class="n">zastoupeni_predikce_df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">middle_x</span><span class="p">,</span> <span class="c1">#zastoupeni_predikce_df.index[0],</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;50% zastoupení&quot;</span><span class="p">,</span>
+    <span class="n">arrowhead</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+
+
 <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Počet poslanců ve sněmovně dle pohlaví&quot;</span><span class="p">,</span>    
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Zastoupení žen ve Poslanecké sněmovně ČR&quot;</span><span class="p">,</span>    
     <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s2">&quot;#FFFFFF&quot;</span><span class="p">,</span>
     <span class="n">hovermode</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
     <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Datum&quot;</span><span class="p">),</span>
-    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Počet poslanců&quot;</span><span class="p">)</span>
+    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Zastoupení žen&quot;</span><span class="p">,</span>
+        <span class="n">tickvals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+        <span class="n">ticktext</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0%&quot;</span><span class="p">,</span> <span class="s2">&quot;20%&quot;</span><span class="p">,</span> <span class="s2">&quot;40%&quot;</span><span class="p">,</span> <span class="s2">&quot;60%&quot;</span><span class="p">,</span> <span class="s2">&quot;80%&quot;</span><span class="p">,</span> <span class="s2">&quot;100%&quot;</span><span class="p">]</span>
+        <span class="c1">#tickformat=&#39;%&#39;,</span>
+        <span class="c1">#range=[0,1]</span>
+    <span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
@@ -15154,9 +15375,9 @@ var n,i=t("./lib/build-log"),a=t("./lib/epsilon"),o=t("./lib/intersecter"),s=t("
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<div>                            <div id="471d1833-a336-4eb2-a06d-a76d60b42fda" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("471d1833-a336-4eb2-a06d-a76d60b42fda")) {                    Plotly.newPlot(                        "471d1833-a336-4eb2-a06d-a76d60b42fda",                        [{"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1992<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (1992)", "stackgroup": "1992", "type": "scatter", "x": ["1992-06-06", "1993-11-09", "1993-11-11", "1995-05-23", "1995-05-25", "1996-04-29", "1996-04-30", "1996-05-06", "1996-05-07", "1996-06-05", "1996-06-06"], "y": [20.0, 19.0, 19.0, 19.0, 19.0, 19.0, 19.0, 19.0, 20.0, 20.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1992<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (1992)", "stackgroup": "1992", "type": "scatter", "x": ["1992-06-06", "1993-11-09", "1993-11-11", "1995-05-23", "1995-05-25", "1996-04-29", "1996-04-30", "1996-05-06", "1996-05-07", "1996-06-05", "1996-06-06"], "y": [180.0, 180.0, 181.0, 180.0, 181.0, 180.0, 181.0, 180.0, 180.0, 180.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1996<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (1996)", "stackgroup": "1996", "type": "scatter", "x": ["1996-06-01", "1996-11-01", "1996-11-02", "1996-12-17", "1996-12-18", "1997-01-16", "1997-01-17", "1997-06-02", "1997-06-03", "1997-06-11", "1997-06-12", "1997-08-27", "1997-08-28", "1997-08-29", "1997-08-30", "1997-11-11", "1997-11-12", "1997-12-01", "1997-12-02", "1997-12-03", "1998-01-26", "1998-01-27", "1998-02-12", "1998-02-13", "1998-02-25", "1998-02-26", "1998-06-18", "1998-06-19"], "y": [30.0, 30.0, 30.0, 29.0, 29.0, 29.0, 29.0, 29.0, 29.0, 29.0, 29.0, 29.0, 29.0, 29.0, 29.0, 29.0, 29.0, 29.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 30.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1996<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (1996)", "stackgroup": "1996", "type": "scatter", "x": ["1996-06-01", "1996-11-01", "1996-11-02", "1996-12-17", "1996-12-18", "1997-01-16", "1997-01-17", "1997-06-02", "1997-06-03", "1997-06-11", "1997-06-12", "1997-08-27", "1997-08-28", "1997-08-29", "1997-08-30", "1997-11-11", "1997-11-12", "1997-12-01", "1997-12-02", "1997-12-03", "1998-01-26", "1998-01-27", "1998-02-12", "1998-02-13", "1998-02-25", "1998-02-26", "1998-06-18", "1998-06-19"], "y": [170.0, 169.0, 170.0, 169.0, 171.0, 170.0, 171.0, 170.0, 171.0, 170.0, 171.0, 170.0, 171.0, 170.0, 171.0, 170.0, 171.0, 170.0, 169.0, 170.0, 169.0, 170.0, 169.0, 170.0, 169.0, 170.0, 170.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1998<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (1998)", "stackgroup": "1998", "type": "scatter", "x": ["1998-06-20", "1999-11-22", "2000-09-14", "2001-02-28", "2001-03-01", "2001-07-31", "2001-10-31", "2002-06-19", "2002-06-20"], "y": [30.0, 30.0, 31.0, 31.0, 32.0, 32.0, 32.0, 32.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1998<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (1998)", "stackgroup": "1998", "type": "scatter", "x": ["1998-06-20", "1999-11-22", "2000-09-14", "2001-02-28", "2001-03-01", "2001-07-31", "2001-10-31", "2002-06-19", "2002-06-20"], "y": [170.0, 170.0, 169.0, 167.0, 168.0, 168.0, 168.0, 168.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2002<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (2002)", "stackgroup": "2002", "type": "scatter", "x": ["2002-06-15", "2002-09-18", "2003-03-07", "2003-04-23", "2003-06-02", "2003-06-06", "2003-07-26", "2003-09-23", "2004-05-05", "2004-07-08", "2004-07-20", "2004-08-31", "2004-09-21", "2004-09-22", "2004-09-24", "2004-09-30", "2004-10-07", "2005-06-09", "2005-07-24", "2005-12-02", "2005-12-09", "2006-01-17", "2006-01-20", "2006-01-24", "2006-02-28", "2006-04-18", "2006-06-14", "2006-06-15"], "y": [34.0, 34.0, 34.0, 34.0, 34.0, 34.0, 34.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 33.0, 32.0, 32.0, 32.0, 31.0, 32.0, 32.0, 31.0, 31.0, 32.0, 32.0, 32.0, 33.0, 33.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2002<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (2002)", "stackgroup": "2002", "type": "scatter", "x": ["2002-06-15", "2002-09-18", "2003-03-07", "2003-04-23", "2003-06-02", "2003-06-06", "2003-07-26", "2003-09-23", "2004-05-05", "2004-07-08", "2004-07-20", "2004-08-31", "2004-09-21", "2004-09-22", "2004-09-24", "2004-09-30", "2004-10-07", "2005-06-09", "2005-07-24", "2005-12-02", "2005-12-09", "2006-01-17", "2006-01-20", "2006-01-24", "2006-02-28", "2006-04-18", "2006-06-14", "2006-06-15"], "y": [166.0, 166.0, 166.0, 166.0, 166.0, 166.0, 166.0, 167.0, 167.0, 167.0, 167.0, 167.0, 167.0, 167.0, 168.0, 168.0, 168.0, 169.0, 168.0, 168.0, 169.0, 169.0, 168.0, 168.0, 168.0, 167.0, 167.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2006<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (2006)", "stackgroup": "2006", "type": "scatter", "x": ["2006-06-03", "2007-01-16", "2008-09-17", "2008-10-25", "2008-11-13", "2008-12-11", "2009-03-01", "2009-04-30", "2009-07-03", "2009-07-09", "2009-07-13", "2009-09-15", "2009-09-29", "2009-12-11", "2010-03-01", "2010-04-30", "2010-05-26", "2010-06-02", "2010-06-03"], "y": [31.0, 31.0, 31.0, 31.0, 32.0, 33.0, 35.0, 35.0, 34.0, 34.0, 35.0, 36.0, 36.0, 36.0, 36.0, 38.0, 37.0, 37.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2006<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (2006)", "stackgroup": "2006", "type": "scatter", "x": ["2006-06-03", "2007-01-16", "2008-09-17", "2008-10-25", "2008-11-13", "2008-12-11", "2009-03-01", "2009-04-30", "2009-07-03", "2009-07-09", "2009-07-13", "2009-09-15", "2009-09-29", "2009-12-11", "2010-03-01", "2010-04-30", "2010-05-26", "2010-06-02", "2010-06-03"], "y": [169.0, 169.0, 169.0, 169.0, 168.0, 167.0, 165.0, 165.0, 166.0, 166.0, 165.0, 164.0, 164.0, 164.0, 164.0, 162.0, 163.0, 163.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2010<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (2010)", "stackgroup": "2010", "type": "scatter", "x": ["2010-05-29", "2010-10-23", "2010-11-30", "2011-03-01", "2011-03-25", "2011-03-26", "2012-02-07", "2012-10-20", "2012-11-07", "2013-01-31", "2013-04-05", "2013-04-11", "2013-04-24", "2013-06-14", "2013-08-27", "2013-08-28"], "y": [44.0, 45.0, 44.0, 44.0, 44.0, 44.0, 44.0, 43.0, 43.0, 43.0, 44.0, 43.0, 43.0, 43.0, 43.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2010<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (2010)", "stackgroup": "2010", "type": "scatter", "x": ["2010-05-29", "2010-10-23", "2010-11-30", "2011-03-01", "2011-03-25", "2011-03-26", "2012-02-07", "2012-10-20", "2012-11-07", "2013-01-31", "2013-04-05", "2013-04-11", "2013-04-24", "2013-06-14", "2013-08-27", "2013-08-28"], "y": [156.0, 155.0, 156.0, 156.0, 156.0, 156.0, 156.0, 157.0, 157.0, 157.0, 156.0, 157.0, 157.0, 157.0, 157.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2013<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (2013)", "stackgroup": "2013", "type": "scatter", "x": ["2013-10-26", "2013-11-27", "2013-12-03", "2014-03-31", "2014-04-30", "2014-06-20", "2014-07-01", "2014-08-28", "2014-10-21", "2014-12-08", "2016-01-14", "2017-01-03", "2017-03-14", "2017-06-09", "2017-07-01", "2017-10-25", "2017-10-26"], "y": [39.0, 39.0, 39.0, 40.0, 40.0, 40.0, 39.0, 39.0, 39.0, 40.0, 41.0, 40.0, 40.0, 40.0, 41.0, 41.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2013<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (2013)", "stackgroup": "2013", "type": "scatter", "x": ["2013-10-26", "2013-11-27", "2013-12-03", "2014-03-31", "2014-04-30", "2014-06-20", "2014-07-01", "2014-08-28", "2014-10-21", "2014-12-08", "2016-01-14", "2017-01-03", "2017-03-14", "2017-06-09", "2017-07-01", "2017-10-25", "2017-10-26"], "y": [161.0, 161.0, 161.0, 160.0, 160.0, 160.0, 161.0, 161.0, 161.0, 160.0, 159.0, 160.0, 160.0, 160.0, 159.0, 159.0, 0.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2017<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (2017)", "stackgroup": "2017", "type": "scatter", "x": ["2017-10-21", "2017-11-24", "2018-03-31", "2018-06-19", "2018-10-01", "2018-12-04", "2019-04-14", "2019-04-15", "2019-06-06", "2019-07-02", "2020-07-31", "2020-10-10", "2020-12-31", "2021-01-19", "2021-01-26", "2021-03-01", "2021-03-09", null], "y": [44.0, 44.0, 44.0, 45.0, 45.0, 46.0, 46.0, 47.0, 47.0, 45.0, 46.0, 45.0, 46.0, 46.0, 46.0, 45.0, 45.0, 45.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2017<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (2017)", "stackgroup": "2017", "type": "scatter", "x": ["2017-10-21", "2017-11-24", "2018-03-31", "2018-06-19", "2018-10-01", "2018-12-04", "2019-04-14", "2019-04-15", "2019-06-06", "2019-07-02", "2020-07-31", "2020-10-10", "2020-12-31", "2021-01-19", "2021-01-26", "2021-03-01", "2021-03-09", null], "y": [156.0, 156.0, 156.0, 155.0, 155.0, 154.0, 154.0, 153.0, 153.0, 155.0, 154.0, 155.0, 154.0, 154.0, 154.0, 155.0, 155.0, 155.0]}],                        {"hovermode": "x", "plot_bgcolor": "#FFFFFF", "showlegend": false, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "autotypenumbers": "strict", "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Po\u010det poslanc\u016f ve sn\u011bmovn\u011b dle pohlav\u00ed"}, "xaxis": {"title": {"text": "Datum"}}, "yaxis": {"title": {"text": "Po\u010det poslanc\u016f"}}},                        {"responsive": true}                    ).then(function(){
+<div>                            <div id="13123f70-1369-4244-995d-192512d8c729" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("13123f70-1369-4244-995d-192512d8c729")) {                    Plotly.newPlot(                        "13123f70-1369-4244-995d-192512d8c729",                        [{"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1992<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (1992)", "stackgroup": "1992", "type": "scatter", "x": ["1992-06-06", "1993-11-09", "1993-11-11", "1995-05-23", "1995-05-25", "1996-04-29", "1996-04-30", "1996-05-06", "1996-05-07", "1996-05-31"], "y": [10.0, 9.547738693467336, 9.5, 9.547738693467336, 9.5, 9.547738693467336, 9.5, 9.547738693467336, 10.0, 10.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1992<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (1992)", "stackgroup": "1992", "type": "scatter", "x": ["1992-06-06", "1993-11-09", "1993-11-11", "1995-05-23", "1995-05-25", "1996-04-29", "1996-04-30", "1996-05-06", "1996-05-07", "1996-05-31"], "y": [90.0, 90.45226130653266, 90.5, 90.45226130653266, 90.5, 90.45226130653266, 90.5, 90.45226130653266, 90.0, 90.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1996<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (1996)", "stackgroup": "1996", "type": "scatter", "x": ["1996-06-01", "1996-11-01", "1996-11-02", "1996-12-17", "1996-12-18", "1997-01-16", "1997-01-17", "1997-06-02", "1997-06-03", "1997-06-11", "1997-06-12", "1997-08-27", "1997-08-28", "1997-08-29", "1997-08-30", "1997-11-11", "1997-11-12", "1997-12-01", "1997-12-02", "1997-12-03", "1998-01-26", "1998-01-27", "1998-02-12", "1998-02-13", "1998-02-25", "1998-02-26", "1998-06-18"], "y": [15.0, 15.075376884422111, 15.0, 14.646464646464647, 14.5, 14.57286432160804, 14.5, 14.57286432160804, 14.5, 14.57286432160804, 14.5, 14.57286432160804, 14.5, 14.57286432160804, 14.5, 14.57286432160804, 14.5, 14.57286432160804, 15.075376884422111, 15.0, 15.075376884422111, 15.0, 15.075376884422111, 15.0, 15.075376884422111, 15.0, 15.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1996<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (1996)", "stackgroup": "1996", "type": "scatter", "x": ["1996-06-01", "1996-11-01", "1996-11-02", "1996-12-17", "1996-12-18", "1997-01-16", "1997-01-17", "1997-06-02", "1997-06-03", "1997-06-11", "1997-06-12", "1997-08-27", "1997-08-28", "1997-08-29", "1997-08-30", "1997-11-11", "1997-11-12", "1997-12-01", "1997-12-02", "1997-12-03", "1998-01-26", "1998-01-27", "1998-02-12", "1998-02-13", "1998-02-25", "1998-02-26", "1998-06-18"], "y": [85.0, 84.92462311557789, 85.0, 85.35353535353535, 85.5, 85.42713567839196, 85.5, 85.42713567839196, 85.5, 85.42713567839196, 85.5, 85.42713567839196, 85.5, 85.42713567839196, 85.5, 85.42713567839196, 85.5, 85.42713567839196, 84.92462311557789, 85.0, 84.92462311557789, 85.0, 84.92462311557789, 85.0, 84.92462311557789, 85.0, 85.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1998<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (1998)", "stackgroup": "1998", "type": "scatter", "x": ["1998-06-20", "1999-11-22", "2000-09-14", "2001-02-28", "2001-03-01", "2001-07-31", "2001-10-31", "2002-06-14"], "y": [15.0, 15.0, 15.5, 15.656565656565656, 16.0, 16.0, 16.0, 16.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 1998<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (1998)", "stackgroup": "1998", "type": "scatter", "x": ["1998-06-20", "1999-11-22", "2000-09-14", "2001-02-28", "2001-03-01", "2001-07-31", "2001-10-31", "2002-06-14"], "y": [85.0, 85.0, 84.5, 84.34343434343434, 84.0, 84.0, 84.0, 84.0]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2002<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (2002)", "stackgroup": "2002", "type": "scatter", "x": ["2002-06-15", "2002-09-18", "2003-03-07", "2003-04-23", "2003-06-02", "2003-06-06", "2003-07-26", "2003-09-23", "2004-05-05", "2004-07-08", "2004-07-20", "2004-08-31", "2004-09-21", "2004-09-22", "2004-09-24", "2004-09-30", "2004-10-07", "2005-06-09", "2005-07-24", "2005-12-02", "2005-12-09", "2006-01-17", "2006-01-20", "2006-01-24", "2006-02-28", "2006-04-18", "2006-06-02"], "y": [17.0, 17.0, 17.0, 17.0, 17.0, 17.0, 17.0, 16.5, 16.5, 16.5, 16.5, 16.5, 16.5, 16.5, 16.0, 16.0, 16.0, 15.5, 16.0, 16.0, 15.5, 15.5, 16.0, 16.0, 16.0, 16.5, 16.5]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2002<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (2002)", "stackgroup": "2002", "type": "scatter", "x": ["2002-06-15", "2002-09-18", "2003-03-07", "2003-04-23", "2003-06-02", "2003-06-06", "2003-07-26", "2003-09-23", "2004-05-05", "2004-07-08", "2004-07-20", "2004-08-31", "2004-09-21", "2004-09-22", "2004-09-24", "2004-09-30", "2004-10-07", "2005-06-09", "2005-07-24", "2005-12-02", "2005-12-09", "2006-01-17", "2006-01-20", "2006-01-24", "2006-02-28", "2006-04-18", "2006-06-02"], "y": [83.0, 83.0, 83.0, 83.0, 83.0, 83.0, 83.0, 83.5, 83.5, 83.5, 83.5, 83.5, 83.5, 83.5, 84.0, 84.0, 84.0, 84.5, 84.0, 84.0, 84.5, 84.5, 84.0, 84.0, 84.0, 83.5, 83.5]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2006<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (2006)", "stackgroup": "2006", "type": "scatter", "x": ["2006-06-03", "2007-01-16", "2008-09-17", "2008-10-25", "2008-11-13", "2008-12-11", "2009-03-01", "2009-04-30", "2009-07-03", "2009-07-09", "2009-07-13", "2009-09-15", "2009-09-29", "2009-12-11", "2010-03-01", "2010-04-30", "2010-05-26", "2010-05-28"], "y": [15.5, 15.5, 15.5, 15.5, 16.0, 16.5, 17.5, 17.5, 17.0, 17.0, 17.5, 18.0, 18.0, 18.0, 18.0, 19.0, 18.5, 18.5]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2006<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (2006)", "stackgroup": "2006", "type": "scatter", "x": ["2006-06-03", "2007-01-16", "2008-09-17", "2008-10-25", "2008-11-13", "2008-12-11", "2009-03-01", "2009-04-30", "2009-07-03", "2009-07-09", "2009-07-13", "2009-09-15", "2009-09-29", "2009-12-11", "2010-03-01", "2010-04-30", "2010-05-26", "2010-05-28"], "y": [84.5, 84.5, 84.5, 84.5, 84.0, 83.5, 82.5, 82.5, 83.0, 83.0, 82.5, 82.0, 82.0, 82.0, 82.0, 81.0, 81.5, 81.5]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2010<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (2010)", "stackgroup": "2010", "type": "scatter", "x": ["2010-05-29", "2010-10-23", "2010-11-30", "2011-03-01", "2011-03-25", "2011-03-26", "2012-02-07", "2012-10-20", "2012-11-07", "2013-01-31", "2013-04-05", "2013-04-11", "2013-04-24", "2013-06-14", "2013-08-27"], "y": [22.0, 22.5, 22.0, 22.0, 22.0, 22.0, 22.0, 21.5, 21.5, 21.5, 22.0, 21.5, 21.5, 21.5, 21.5]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2010<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (2010)", "stackgroup": "2010", "type": "scatter", "x": ["2010-05-29", "2010-10-23", "2010-11-30", "2011-03-01", "2011-03-25", "2011-03-26", "2012-02-07", "2012-10-20", "2012-11-07", "2013-01-31", "2013-04-05", "2013-04-11", "2013-04-24", "2013-06-14", "2013-08-27"], "y": [78.0, 77.5, 78.0, 78.0, 78.0, 78.0, 78.0, 78.5, 78.5, 78.5, 78.0, 78.5, 78.5, 78.5, 78.5]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2013<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (2013)", "stackgroup": "2013", "type": "scatter", "x": ["2013-10-26", "2013-11-27", "2013-12-03", "2014-03-31", "2014-04-30", "2014-06-20", "2014-07-01", "2014-08-28", "2014-10-21", "2014-12-08", "2016-01-14", "2017-01-03", "2017-03-14", "2017-06-09", "2017-07-01", "2017-10-20"], "y": [19.5, 19.5, 19.5, 20.0, 20.0, 20.0, 19.5, 19.5, 19.5, 20.0, 20.5, 20.0, 20.0, 20.0, 20.5, 20.5]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2013<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (2013)", "stackgroup": "2013", "type": "scatter", "x": ["2013-10-26", "2013-11-27", "2013-12-03", "2014-03-31", "2014-04-30", "2014-06-20", "2014-07-01", "2014-08-28", "2014-10-21", "2014-12-08", "2016-01-14", "2017-01-03", "2017-03-14", "2017-06-09", "2017-07-01", "2017-10-20"], "y": [80.5, 80.5, 80.5, 80.0, 80.0, 80.0, 80.5, 80.5, 80.5, 80.0, 79.5, 80.0, 80.0, 80.0, 79.5, 79.5]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2017<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: \u017eeny<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "\u017eeny (2017)", "stackgroup": "2017", "type": "scatter", "x": ["2017-10-21", "2017-11-24", "2018-03-31", "2018-06-19", "2018-10-01", "2018-12-04", "2019-04-14", "2019-04-15", "2019-06-06", "2019-07-02", "2020-07-31", "2020-10-10", "2020-12-31", "2021-01-19", "2021-01-26", "2021-03-01", "2021-03-09", "2021-05-31"], "y": [22.0, 22.0, 22.0, 22.5, 22.5, 23.0, 23.0, 23.5, 23.5, 22.5, 23.0, 22.5, 23.0, 23.0, 23.0, 22.5, 22.5, 22.5]}, {"hoverinfo": "text", "hovertemplate": "Sn\u011bmovna: 2017<br>Datum: %{x|%d. %m. %Y}<br>Pohlav\u00ed: mu\u017ei<br>Po\u010det: %{y}<extra></extra>", "mode": "markers+lines", "name": "mu\u017ei (2017)", "stackgroup": "2017", "type": "scatter", "x": ["2017-10-21", "2017-11-24", "2018-03-31", "2018-06-19", "2018-10-01", "2018-12-04", "2019-04-14", "2019-04-15", "2019-06-06", "2019-07-02", "2020-07-31", "2020-10-10", "2020-12-31", "2021-01-19", "2021-01-26", "2021-03-01", "2021-03-09", "2021-05-31"], "y": [78.0, 78.0, 78.0, 77.5, 77.5, 77.0, 77.0, 76.5, 76.5, 77.5, 77.0, 77.5, 77.0, 77.0, 77.0, 77.5, 77.5, 77.5]}, {"line": {"color": "green", "dash": "dash", "width": 2}, "mode": "lines", "name": "\u017eeny (predikce)", "type": "scatter", "x": ["1992-06-06T00:00:00", "1993-11-09T00:00:00", "1993-11-11T00:00:00", "1995-05-23T00:00:00", "1995-05-25T00:00:00", "1996-04-29T00:00:00", "1996-04-30T00:00:00", "1996-05-06T00:00:00", "1996-05-07T00:00:00", "1996-05-31T00:00:00", "1996-06-01T00:00:00", "1996-11-01T00:00:00", "1996-11-02T00:00:00", "1996-12-17T00:00:00", "1996-12-18T00:00:00", "1997-01-16T00:00:00", "1997-01-17T00:00:00", "1997-06-02T00:00:00", "1997-06-03T00:00:00", "1997-06-11T00:00:00", "1997-06-12T00:00:00", "1997-08-27T00:00:00", "1997-08-28T00:00:00", "1997-08-29T00:00:00", "1997-08-30T00:00:00", "1997-11-11T00:00:00", "1997-11-12T00:00:00", "1997-12-01T00:00:00", "1997-12-02T00:00:00", "1997-12-03T00:00:00", "1998-01-26T00:00:00", "1998-01-27T00:00:00", "1998-02-12T00:00:00", "1998-02-13T00:00:00", "1998-02-25T00:00:00", "1998-02-26T00:00:00", "1998-06-18T00:00:00", "1998-06-20T00:00:00", "1999-11-22T00:00:00", "2000-09-14T00:00:00", "2001-02-28T00:00:00", "2001-03-01T00:00:00", "2001-07-31T00:00:00", "2001-10-31T00:00:00", "2002-06-14T00:00:00", "2002-06-15T00:00:00", "2002-09-18T00:00:00", "2003-03-07T00:00:00", "2003-04-23T00:00:00", "2003-06-02T00:00:00", "2003-06-06T00:00:00", "2003-07-26T00:00:00", "2003-09-23T00:00:00", "2004-05-05T00:00:00", "2004-07-08T00:00:00", "2004-07-20T00:00:00", "2004-08-31T00:00:00", "2004-09-21T00:00:00", "2004-09-22T00:00:00", "2004-09-24T00:00:00", "2004-09-30T00:00:00", "2004-10-07T00:00:00", "2005-06-09T00:00:00", "2005-07-24T00:00:00", "2005-12-02T00:00:00", "2005-12-09T00:00:00", "2006-01-17T00:00:00", "2006-01-20T00:00:00", "2006-01-24T00:00:00", "2006-02-28T00:00:00", "2006-04-18T00:00:00", "2006-06-02T00:00:00", "2006-06-03T00:00:00", "2007-01-16T00:00:00", "2008-09-17T00:00:00", "2008-10-25T00:00:00", "2008-11-13T00:00:00", "2008-12-11T00:00:00", "2009-03-01T00:00:00", "2009-04-30T00:00:00", "2009-07-03T00:00:00", "2009-07-09T00:00:00", "2009-07-13T00:00:00", "2009-09-15T00:00:00", "2009-09-29T00:00:00", "2009-12-11T00:00:00", "2010-03-01T00:00:00", "2010-04-30T00:00:00", "2010-05-26T00:00:00", "2010-05-28T00:00:00", "2010-05-29T00:00:00", "2010-10-23T00:00:00", "2010-11-30T00:00:00", "2011-03-01T00:00:00", "2011-03-25T00:00:00", "2011-03-26T00:00:00", "2012-02-07T00:00:00", "2012-10-20T00:00:00", "2012-11-07T00:00:00", "2013-01-31T00:00:00", "2013-04-05T00:00:00", "2013-04-11T00:00:00", "2013-04-24T00:00:00", "2013-06-14T00:00:00", "2013-08-27T00:00:00", "2013-10-26T00:00:00", "2013-11-27T00:00:00", "2013-12-03T00:00:00", "2014-03-31T00:00:00", "2014-04-30T00:00:00", "2014-06-20T00:00:00", "2014-07-01T00:00:00", "2014-08-28T00:00:00", "2014-10-21T00:00:00", "2014-12-08T00:00:00", "2016-01-14T00:00:00", "2017-01-03T00:00:00", "2017-03-14T00:00:00", "2017-06-09T00:00:00", "2017-07-01T00:00:00", "2017-10-20T00:00:00", "2017-10-21T00:00:00", "2017-11-24T00:00:00", "2018-03-31T00:00:00", "2018-06-19T00:00:00", "2018-10-01T00:00:00", "2018-12-04T00:00:00", "2019-04-14T00:00:00", "2019-04-15T00:00:00", "2019-06-06T00:00:00", "2019-07-02T00:00:00", "2020-07-31T00:00:00", "2020-10-10T00:00:00", "2020-12-31T00:00:00", "2021-01-19T00:00:00", "2021-01-26T00:00:00", "2021-03-01T00:00:00", "2021-03-09T00:00:00", "2021-05-31T00:00:00", "2021-05-31T00:00:00", "2022-10-03T00:00:00", "2024-02-05T00:00:00", "2025-06-09T00:00:00", "2026-10-12T00:00:00", "2028-02-14T00:00:00", "2029-06-18T00:00:00", "2030-10-21T00:00:00", "2032-02-23T00:00:00", "2033-06-26T00:00:00", "2034-10-29T00:00:00", "2036-03-02T00:00:00", "2037-07-05T00:00:00", "2038-11-07T00:00:00", "2040-03-11T00:00:00", "2041-07-14T00:00:00", "2042-11-16T00:00:00", "2044-03-20T00:00:00", "2045-07-23T00:00:00", "2046-11-25T00:00:00", "2048-03-29T00:00:00", "2049-08-01T00:00:00", "2050-12-04T00:00:00", "2052-04-07T00:00:00", "2053-08-10T00:00:00", "2054-12-12T00:00:00", "2056-04-15T00:00:00", "2057-08-18T00:00:00", "2058-12-21T00:00:00", "2060-04-24T00:00:00", "2061-08-27T00:00:00", "2062-12-30T00:00:00", "2064-05-03T00:00:00", "2065-09-05T00:00:00", "2067-01-08T00:00:00", "2068-05-12T00:00:00", "2069-09-14T00:00:00", "2071-01-17T00:00:00", "2072-05-21T00:00:00", "2073-09-23T00:00:00", "2075-01-26T00:00:00", "2076-05-29T00:00:00", "2077-10-01T00:00:00", "2079-02-03T00:00:00", "2080-06-07T00:00:00", "2081-10-10T00:00:00", "2083-02-12T00:00:00", "2084-06-16T00:00:00", "2085-10-19T00:00:00", "2087-02-21T00:00:00"], "y": [11.52, 12.1, 12.11, 12.73, 12.73, 13.11, 13.11, 13.11, 13.12, 13.14, 13.14, 13.31, 13.31, 13.36, 13.37, 13.4, 13.4, 13.55, 13.55, 13.56, 13.56, 13.65, 13.65, 13.65, 13.65, 13.73, 13.73, 13.75, 13.75, 13.76, 13.82, 13.82, 13.83, 13.84, 13.85, 13.85, 13.97, 13.98, 14.55, 14.89, 15.07, 15.07, 15.24, 15.34, 15.59, 15.6, 15.7, 15.89, 15.94, 15.99, 15.99, 16.05, 16.11, 16.36, 16.43, 16.45, 16.49, 16.52, 16.52, 16.52, 16.53, 16.54, 16.81, 16.86, 17.0, 17.01, 17.06, 17.06, 17.06, 17.1, 17.16, 17.21, 17.21, 17.46, 18.14, 18.18, 18.2, 18.23, 18.32, 18.39, 18.46, 18.47, 18.47, 18.54, 18.56, 18.64, 18.73, 18.79, 18.82, 18.83, 18.83, 18.99, 19.03, 19.13, 19.16, 19.16, 19.52, 19.8, 19.82, 19.91, 19.99, 19.99, 20.01, 20.06, 20.15, 20.21, 20.25, 20.26, 20.39, 20.42, 20.48, 20.49, 20.55, 20.61, 20.67, 21.11, 21.51, 21.59, 21.68, 21.71, 21.83, 21.83, 21.87, 22.01, 22.1, 22.22, 22.29, 22.43, 22.43, 22.49, 22.52, 22.96, 23.04, 23.13, 23.15, 23.16, 23.2, 23.21, 23.3, 23.3, 23.84, 24.39, 24.93, 25.48, 26.02, 26.57, 27.11, 27.66, 28.2, 28.75, 29.29, 29.84, 30.38, 30.93, 31.47, 32.02, 32.56, 33.11, 33.65, 34.2, 34.74, 35.29, 35.83, 36.38, 36.92, 37.47, 38.01, 38.56, 39.1, 39.65, 40.19, 40.74, 41.28, 41.83, 42.37, 42.92, 43.46, 44.01, 44.55, 45.1, 45.64, 46.18, 46.73, 47.27, 47.82, 48.36, 48.91, 49.45, 50.0]}],                        {"annotations": [{"arrowhead": 2, "text": "50% zastoupen\u00ed", "x": "2039-10-14T12:00:00", "y": 50}], "hovermode": "x", "plot_bgcolor": "#FFFFFF", "shapes": [{"line": {"color": "black", "dash": "dot", "width": 1}, "type": "line", "x0": "1992-06-06T00:00:00", "x1": "2087-02-21T00:00:00", "y0": 50, "y1": 50}], "showlegend": false, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "autotypenumbers": "strict", "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Zastoupen\u00ed \u017een ve Poslaneck\u00e9 sn\u011bmovn\u011b \u010cR"}, "xaxis": {"title": {"text": "Datum"}}, "yaxis": {"ticktext": ["0%", "20%", "40%", "60%", "80%", "100%"], "tickvals": [0, 20, 40, 60, 80, 100], "title": {"text": "Zastoupen\u00ed \u017een"}}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('471d1833-a336-4eb2-a06d-a76d60b42fda');
+var gd = document.getElementById('13123f70-1369-4244-995d-192512d8c729');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -15187,10 +15408,361 @@ if (outputEl) {{
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Export-dat">Export dat<a class="anchor-link" href="#Export-dat">&#182;</a></h2>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Data-o-zastoupen&#237;-&#382;en-bez-predikce">Data o zastoupen&#237; &#382;en bez predikce<a class="anchor-link" href="#Data-o-zastoupen&#237;-&#382;en-bez-predikce">&#182;</a></h3>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>zeny_pct</th>
+      <th>muzi_pct</th>
+      <th>zeny_cnt</th>
+      <th>muzi_cnt</th>
+      <th>check_cnt</th>
+      <th>snemovna</th>
+      <th>days_from_start</th>
+    </tr>
+    <tr>
+      <th>datum</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992-06-06</th>
+      <td>10.000000</td>
+      <td>90.000000</td>
+      <td>20.0</td>
+      <td>180.0</td>
+      <td>200.0</td>
+      <td>1992</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1993-11-09</th>
+      <td>9.547739</td>
+      <td>90.452261</td>
+      <td>19.0</td>
+      <td>180.0</td>
+      <td>199.0</td>
+      <td>1992</td>
+      <td>521</td>
+    </tr>
+    <tr>
+      <th>1993-11-11</th>
+      <td>9.500000</td>
+      <td>90.500000</td>
+      <td>19.0</td>
+      <td>181.0</td>
+      <td>200.0</td>
+      <td>1992</td>
+      <td>523</td>
+    </tr>
+    <tr>
+      <th>1995-05-23</th>
+      <td>9.547739</td>
+      <td>90.452261</td>
+      <td>19.0</td>
+      <td>180.0</td>
+      <td>199.0</td>
+      <td>1992</td>
+      <td>1081</td>
+    </tr>
+    <tr>
+      <th>1995-05-25</th>
+      <td>9.500000</td>
+      <td>90.500000</td>
+      <td>19.0</td>
+      <td>181.0</td>
+      <td>200.0</td>
+      <td>1992</td>
+      <td>1083</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> mkdir -p <span class="s2">&quot;../docs/data&quot;</span>
+<span class="n">export_path</span> <span class="o">=</span> <span class="s2">&quot;../docs/data/zastoupeni_zen_v_PS_CR.csv&quot;</span>
+<span class="n">zastoupeni_df</span><span class="p">[[</span><span class="s1">&#39;zeny_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;muzi_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;zeny_cnt&#39;</span><span class="p">,</span> <span class="s1">&#39;muzi_cnt&#39;</span><span class="p">,</span> <span class="s1">&#39;snemovna&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">export_path</span><span class="p">)</span>
+<span class="o">!</span> ls -l <span class="o">{</span>export_path<span class="o">}</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>-rw-r--r-- 1 runner docker 5666 May 31 14:02 ../docs/data/zastoupeni_zen_v_PS_CR.csv
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Data-o-zastoupen&#237;-&#382;en-s-predikc&#237;">Data o zastoupen&#237; &#382;en s predikc&#237;<a class="anchor-link" href="#Data-o-zastoupen&#237;-&#382;en-s-predikc&#237;">&#182;</a></h3>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">zastoupeni_df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">zastoupeni_predikce_df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;datum&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>zeny_pct</th>
+      <th>muzi_pct</th>
+      <th>zeny_cnt</th>
+      <th>muzi_cnt</th>
+      <th>check_cnt</th>
+      <th>snemovna</th>
+      <th>days_from_start</th>
+      <th>zeny_pct_predikce</th>
+    </tr>
+    <tr>
+      <th>datum</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992-06-06</th>
+      <td>10.000000</td>
+      <td>90.000000</td>
+      <td>20.0</td>
+      <td>180.0</td>
+      <td>200.0</td>
+      <td>1992.0</td>
+      <td>0.0</td>
+      <td>11.524087</td>
+    </tr>
+    <tr>
+      <th>1993-11-09</th>
+      <td>9.547739</td>
+      <td>90.452261</td>
+      <td>19.0</td>
+      <td>180.0</td>
+      <td>199.0</td>
+      <td>1992.0</td>
+      <td>521.0</td>
+      <td>12.103566</td>
+    </tr>
+    <tr>
+      <th>1993-11-11</th>
+      <td>9.500000</td>
+      <td>90.500000</td>
+      <td>19.0</td>
+      <td>181.0</td>
+      <td>200.0</td>
+      <td>1992.0</td>
+      <td>523.0</td>
+      <td>12.105790</td>
+    </tr>
+    <tr>
+      <th>1995-05-23</th>
+      <td>9.547739</td>
+      <td>90.452261</td>
+      <td>19.0</td>
+      <td>180.0</td>
+      <td>199.0</td>
+      <td>1992.0</td>
+      <td>1081.0</td>
+      <td>12.726422</td>
+    </tr>
+    <tr>
+      <th>1995-05-25</th>
+      <td>9.500000</td>
+      <td>90.500000</td>
+      <td>19.0</td>
+      <td>181.0</td>
+      <td>200.0</td>
+      <td>1992.0</td>
+      <td>1083.0</td>
+      <td>12.728647</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span> mkdir -p <span class="s2">&quot;../docs/data&quot;</span>
+<span class="n">export_path</span> <span class="o">=</span> <span class="s2">&quot;../docs/data/predikce_zastoupeni_zen_v_PS_CR.csv&quot;</span>
+<span class="n">m</span><span class="p">[[</span><span class="s1">&#39;zeny_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;muzi_pct&#39;</span><span class="p">,</span> <span class="s1">&#39;zeny_cnt&#39;</span><span class="p">,</span> <span class="s1">&#39;muzi_cnt&#39;</span><span class="p">,</span> <span class="s1">&#39;snemovna&#39;</span><span class="p">,</span> <span class="s1">&#39;zeny_pct_predikce&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">export_path</span><span class="p">)</span>
+<span class="o">!</span> ls -l <span class="o">{</span>export_path<span class="o">}</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>-rw-r--r-- 1 runner docker 10292 May 31 14:02 ../docs/data/predikce_zastoupeni_zen_v_PS_CR.csv
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Poslední běh notebooku: </span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.%Y %H:%M:%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
@@ -15213,7 +15785,7 @@ if (outputEl) {{
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Poslední běh notebooku: 31.05.2021 05:06:28.
+<pre>Poslední běh notebooku: 31.05.2021 14:02:29.
 </pre>
 </div>
 </div>
