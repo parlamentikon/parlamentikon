@@ -1,19 +1,19 @@
-name: Execute Poslanci
+name: Execute Zastoupeni zen v PS
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'notebooks/Poslanci.src.ipynb'
+      - 'notebooks/Zastoupeni_zen_v_PS.src.ipynb'
       - 'parlamentikon/**.py'
-      - '.github/workflows/update-poslanci-nb.yml'
+      - '.github/workflows/update-zastoupeni-zen-v-ps.yml'
   schedule:
     - cron: 0 3 * * *
 
 jobs:
-  run-podobnost-hlasovani:
-    name: Run Poslanci
+  run-zastoupeni-zen-v-ps:
+    name: "Run Zastoupeni zen v PS"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -27,16 +27,16 @@ jobs:
         run: python3 -m venv venv && source venv/bin/activate && pip install wheel && pip install jupyter &&  pip install -r requirements.txt
 
       - name: Run the analytic notebook
-        run: source venv/bin/activate && cd notebooks/ && jupyter nbconvert --to notebook --execute 'Poslanci.src.ipynb' --output 'Poslanci.ipynb' && jupyter nbconvert --to html 'Poslanci.ipynb' --output '../docs/Poslanci.html'
+        run: source venv/bin/activate && cd notebooks/ && jupyter nbconvert --to notebook --execute 'Zastoupeni_zen_v_PS.src.ipynb' --output 'Zastoupeni_zen_v_PS.ipynb' && jupyter nbconvert --to html 'Zastoupeni_zen_v_PS.ipynb' --output '../docs/Zastoupeni_zen_v_PS.html'
 
       - name: Commit changed notebooks to github
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git pull --no-ff
-          git add notebooks/Podobnost_hlasovani.ipynb
-          git add docs/Poslanci.html
-          git add docs/data/predikce_zastoupeni_zen_v_PS_CR.csv
+          git add notebooks/Zastoupeni_zen_v_PS.ipynb
+          git add docs/Zastoupeni_zen_v_PS.html
+          git add docs/data/extrapolace_zastoupeni_zen_v_PS_CR.csv
           git add docs/data/zastoupeni_zen_v_PS_CR.csv
           git commit -m "Automated run of analytic notebooks [github-actions, bot]"
 
