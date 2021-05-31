@@ -14,6 +14,10 @@ Detailnější informace ke knihovně viz. [parlamentikon/README.md](parlamentik
 
 Kde si lze prohlédnout ukázkové notebooky?
 -------------------------------------------
+* Zastoupení žen v Poslanecké sněmovně ČR: Jak se vyvíjí zastoupení žen napříč různými sněmovnami? Co z toho vyplývá pro budoucnost?
+  - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Zastoupeni_zen_v_PS.html)
+  - <a href="https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Zastoupeni_zen_v_PS.ipynb" target="_blank" rel="noopener noreferrer">spusť na GColab</a>
+  - [kód](notebooks/Zastoupeni_zen_v_PS.ipynb)
 * Podobnost hlasování: Jak se podobá hlasování jednotlivých poslanců a poslankyň? Které strany hlasují podobně?
   - [prohlédni notebook](https://parlamentikon.github.io/parlamentikon/Podobnost_hlasovani.html)
   - <a href="https://colab.research.google.com/github/parlamentikon/parlamentikon/blob/main/notebooks/Podobnost_hlasovani.ipynb" target="_blank" rel="noopener noreferrer">spusť na GColab</a>
