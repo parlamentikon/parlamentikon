@@ -27,7 +27,7 @@ jobs:
         run: python3 -m venv venv && source venv/bin/activate && pip install wheel && pip install jupyter &&  pip install -r requirements.txt
 
       - name: Run the analytic notebook
-        run: source venv/bin/activate && cd notebooks/ && jupyter nbconvert --to notebook --execute 'Otazky.src.ipynb' --output 'Otazky.ipynb' && jupyter nbconvert --to html 'Otazky.ipynb' --output '../docs/Otazky.html'
+        run: source venv/bin/activate && cd notebooks/ && jupyter nbconvert --to notebook --execute 'Otazky.src.ipynb' --output 'Otazky.ipynb' --ExecutePreprocessor.kernel_name=python3 && jupyter nbconvert --to html 'Otazky.ipynb' --output '../docs/Otazky.html' --ExecutePreprocessor.kernel_name=python3
 
       - name: Commit changed notebooks to github
         run: |
