@@ -43,8 +43,8 @@ Která data Parlamentikon zpřístupňuje?
 * [Poslanci a Osoby](https://www.psp.cz/sqw/hp.sqw?k=1301)
 * [Hlasování](https://www.psp.cz/sqw/hp.sqw?k=1302)
 * [Schůze](https://www.psp.cz/sqw/hp.sqw?k=1308)
-* [Stenozáznamy](https://www.psp.cz/sqw/hp.sqw?k=1310)
-* [Stenotexty](https://www.psp.cz/eknih/2017ps/stenprot/index.htm): Data se stahují pomocí scrapingu. Zatím ve velmi nedokonalém stavu.
+* [StenoZáznamy](https://www.psp.cz/sqw/hp.sqw?k=1310)
+* [StenoTexty](https://www.psp.cz/eknih/2017ps/stenprot/index.htm): Data se stahují pomocí scrapingu. Zatím ve velmi nedokonalém stavu.
 
 
 Příklady navazující datové analýzy

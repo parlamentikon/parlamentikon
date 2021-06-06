@@ -18,8 +18,8 @@ import pandas as pd
 
 from parlamentikon.Snemovna import *
 from parlamentikon.PoslanciOsoby import *
-from parlamentikon.Stenozaznamy import *
-from parlamentikon.TabulkyStenotexty import *
+from parlamentikon.StenoZaznamy import *
+from parlamentikon.TabulkyStenoTexty import *
 
 from parlamentikon.setup_logger import log
 
@@ -27,7 +27,7 @@ from parlamentikon.setup_logger import log
 # Texty se stahují z internetových stránek PS, viz. např. https://www.psp.cz/eknih/2017ps/stenprot/001schuz/s001001.htm
 
 
-class Stenotexty(TabulkaStenotextyMixin, Stenorec, Steno, ZarazeniOsoby, Organy, Osoby, SnemovnaDataFrame):
+class StenoTexty(TabulkaStenoTextyMixin, StenoRec, Steno, ZarazeniOsoby, Organy, Osoby, SnemovnaDataFrame):
 
     def __init__(self, stahni=True, limit=-1, soubezne_stahovani_max=12, soubezne_zpracovani_max=-1, *args, **kwargs):
         log.debug('--> StenoTexty')
@@ -37,6 +37,12 @@ class Stenotexty(TabulkaStenotextyMixin, Stenorec, Steno, ZarazeniOsoby, Organy,
         self.parameters['limit'] = limit
         self.parameters['soubezne_stahovani_max'] = soubezne_stahovani_max
         self.parameters['soubezne_zpracovani_max'] = soubezne_zpracovani_max
+        
+        volebni_obdobi = self.volebni_obdobi
+        if volebni_obdobi < 2010:
+            log.warning(f"Pro volební období {volebni_obdobi} nebude stahování stenografických přepisů (StenoTextů) velmi pravděpodobně fungovat. Stahování dat funguje pro sněmovny mladší než volební období 2010 (včetně).")
+        
+        log.info(f"Stahuji stenografické přepisy pro volební období {volebni_obdobi}. Proces může trvat v řádu desítek minut.")
 
         if stahni == True:
             self.stahni_steno_texty()

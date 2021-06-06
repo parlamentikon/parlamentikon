@@ -60,6 +60,34 @@ p.meta # Informace k sloupcům použitým v tabulce Poslanci
 p.popis() # Vypíše informace ke všem sloupcům, které by bylo možné v tabulce Poslanci použít 
 ```
 
+Třídy
+------
+* [TypOrgan](PoslanciOsoby.py)
+* [Organy](PoslanciOsoby.py)
+* [TypFunkce](PoslanciOsoby.py)
+* [Funkce](PoslanciOsoby.py)
+* [Osoby](PoslanciOsoby.py)
+* [ZarazeniOsoby](PoslanciOsoby.py)
+* [Poslanci](PoslanciOsoby.py)
+
+* [Hlasovani](Hlasovani.py)
+* [ZmatecneHlasovani](Hlasovani.py)
+* [ZpochybneniHlasovani](Hlasovani.py)
+* [ZpochybneniPoslancem](Hlasovani.py)
+* [Omluvy](Hlasovani.py)
+* [HlasovaniPoslanci](Hlasovani.py)
+
+* [Schuze](Schuze.py)
+* [BodSchuze](Schuze.py)
+
+* [Steno](StenoZaznamy.py)
+* [StenoBod](StenoZaznamy.py)
+* [StenoRec](StenoZaznamy.py)
+
+* [StenoTexty](StenoTexty.py)
+
+Poznámka: Třída StenoTexty umí stahovat data jenom pro volební období 2010, 2013 a 2017.
+
 Jmenné konvence
 ----------------
 Pokoušeli jsme se zachovat jmenné konvence [zdrojových dat](https://www.psp.cz/sqw/hp.sqw?k=1300). Z hlediska konzistence pojmenovávání se nejedná pokaždé o optimální možnost. Výhodou zvoleného přístupu je snadnější srovnání s originálem.
@@ -77,7 +105,7 @@ Pokrytí testy je mizivé. Pro každou skupinu tabulek je možné pustit "integr
 
 TODO
 ------
-- třída Stenotexty
+- třída StenoTexty
   - stahování [komprimovaných dat](https://www.psp.cz/eknih/2017ps/stenprot/zip/)
   - přidat časový parametr (od, do) a umožnit inkrementální stahování a zpracování dat
 - testy

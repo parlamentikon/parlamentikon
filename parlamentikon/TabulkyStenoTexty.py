@@ -23,7 +23,7 @@ Rec = namedtuple("Rec", ['id_rec', 'id_osoba'])
 Promluva = namedtuple('Promluva', ["text", "recnik", "rid", "cas_od", "cas_do"])
 Cas = namedtuple('Cas', ['typ', 'hodina', 'minuta'])
 
-class TabulkaStenotextyMixin(object):
+class TabulkaStenoTextyMixin(object):
     def nacti_steno_texty(self):
         header = {
             'text': MItem('string', 'Text promluvy s odstraněnými poznámkami (tj. bez textu v závorkách atp.)'),

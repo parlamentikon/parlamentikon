@@ -3,7 +3,7 @@ import pandas as pd
 from parlamentikon.Snemovna import SnemovnaZipDataMixin, SnemovnaDataFrame
 from parlamentikon.PoslanciOsoby import Osoby, Organy
 #from parlamentikon.Schuze import *
-from parlamentikon.TabulkyStenozaznamy import TabulkaStenoMixin, TabulkaStenoBodMixin, TabulkaStenoRecMixin
+from parlamentikon.TabulkyStenoZaznamy import TabulkaStenoMixin, TabulkaStenoBodMixin, TabulkaStenoRecMixin
 from parlamentikon.setup_logger import log
 
 # Stenozáznamy jsou těsnopisecké záznamy jednání Poslanecké sněmovny a jejích orgánů. V novějších volebních období obsahují časový úsek řádově 10 minut (případně mimo doby přerušení a podobně). Jsou číslovány v číselné řadě od začátku schůze.
@@ -65,12 +65,12 @@ class StenoBod(TabulkaStenoBodMixin, Steno):
 # Záznamy v druh typu ověřeno jsou zkontrolovány na základě automatického vyhledání záznamů o vystoupení, které neodpovídají jejich obvyklému řazení.
 
 
-class Stenorec(TabulkaStenoRecMixin, Steno, Osoby):
+class StenoRec(TabulkaStenoRecMixin, Steno, Osoby):
 
     def __init__(self, *args, **kwargs):
-        log.debug('--> Stenorec')
+        log.debug('--> StenoRec')
 
-        super(Stenorec, self).__init__(*args, **kwargs)
+        super(StenoRec, self).__init__(*args, **kwargs)
 
         self.nacti_steno_recniky()
 
@@ -94,5 +94,5 @@ class Stenorec(TabulkaStenoRecMixin, Steno, Osoby):
 
         self.nastav_dataframe(self.tbl['steno_rec'])
 
-        log.debug('<-- Stenorec')
+        log.debug('<-- StenoRec')
 
