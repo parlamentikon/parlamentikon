@@ -7,7 +7,7 @@ on:
     paths:
       - 'notebooks/Otazky.src.ipynb'
       - 'parlamentikon/**.py'
-      - '.github/workflows/update-otazky.yml'
+      - '.github/workflows/update-otazky-ps.yml'
   schedule:
     - cron: 0 5 * * *
 
