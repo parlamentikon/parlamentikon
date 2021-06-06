@@ -1,0 +1,46 @@
+name: Execute Otazky posledni schuze
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'notebooks/Otazky.src.ipynb'
+      - 'parlamentikon/**.py'
+      - '.github/workflows/update-otazky.yml'
+  schedule:
+    - cron: 0 5 * * *
+
+jobs:
+  run-zastoupeni-zen-v-ps:
+    name: "Run Otazky posledni schuze"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+          fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+
+      # Install dependencies
+      - name: Create environment and install requirements
+        run: python3 -m venv venv && source venv/bin/activate && pip install wheel && pip install jupyter &&  pip install -r requirements.txt
+
+      - name: Run the analytic notebook
+        run: source venv/bin/activate && cd notebooks/ && jupyter nbconvert --to notebook --execute 'Otazky.src.ipynb' --output 'Otazky.ipynb' && jupyter nbconvert --to html 'Otazky.ipynb' --output '../docs/Otazky.html'
+
+      - name: Commit changed notebooks to github
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git pull --no-ff
+          git add notebooks/Otazky.ipynb
+          git add docs/Otazky.html
+          git add docs/data/otazky_posledni_schuze_PS_CR.csv
+          git commit -m "Automated run of analytic notebooks [otazky-posledni-schuze, github-actions, bot]"
+
+      - name: Push notebooks
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
